@@ -1,0 +1,625 @@
+/* ============ SELF-HOSTED FONTS (subsets: latin + greek όπου υπάρχει) ============ */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('fonts/fraunces-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 600;
+  src: url('fonts/fraunces-latin-600-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/newsreader-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/newsreader-latin-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('fonts/newsreader-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+  src: url('fonts/newsreader-latin-700-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/inter-greek-400-normal.woff2') format('woff2');
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/inter-latin-400-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/inter-greek-400-italic.woff2') format('woff2');
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 400;
+  src: url('fonts/inter-latin-400-italic.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('fonts/inter-greek-500-normal.woff2') format('woff2');
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 500;
+  src: url('fonts/inter-latin-500-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('fonts/inter-greek-600-normal.woff2') format('woff2');
+  unicode-range: U+0370-0377,U+037A-037F,U+0384-038A,U+038C,U+038E-03A1,U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url('fonts/inter-latin-600-normal.woff2') format('woff2');
+  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+/* ============ SELF-HOSTED FONTS (Fontsource, subsets: latin + greek όπου υπάρχει) ============ */
+
+/* ============================================
+   ΠΑΡΑΜΥΘΟΥΠΟΛΗ — Shared Styles
+   ============================================ */
+
+:root{
+  --night: #14202c;
+  --night-deep: #0a1118;
+  --ember: #e3a248;
+  --ember-bright: #f0bc6a;
+  --cream: #f4ecdc;
+  --rust: #8a3e3e;
+  --slate: #5c7a89;
+  --line: rgba(244,236,220,0.12);
+  --paper: #faf6ee;
+  --ink: #2a2018;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--night);
+  color: var(--cream);
+  font-family: 'Newsreader', serif;
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a{ color: inherit; }
+img{ max-width: 100%; display: block; }
+
+h1, h2, h3, .display{
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.eyebrow{
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ember);
+}
+
+.wrap{
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.wrap-narrow{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ============ NAV ============ */
+.nav{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(10,17,24,0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner{
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo{
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cream);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.nav-logo img{ width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+.nav-links{
+  display: flex;
+  gap: 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a{
+  text-decoration: none;
+  color: var(--cream);
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover{ opacity: 1; }
+.back-link{
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  color: rgba(244,236,220,0.7);
+}
+.back-link:hover{ color: var(--ember-bright); }
+
+/* ============ BUTTONS ============ */
+.btn{
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 13px 26px;
+  border-radius: 3px;
+  transition: transform 0.15s, background 0.2s, border-color .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.btn-primary{ background: var(--ember); color: var(--night-deep); }
+.btn-primary:hover{ background: var(--ember-bright); transform: translateY(-1px); }
+.btn-ghost{ border: 1px solid var(--line); color: var(--cream); }
+.btn-ghost:hover{ border-color: var(--ember); transform: translateY(-1px); }
+
+/* ============ FOOTER ============ */
+footer{
+  border-top: 1px solid var(--line);
+  padding: 44px 0;
+  background: var(--night-deep);
+}
+.footer-inner{
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-inner p{
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--slate);
+  margin: 0;
+}
+
+/* ============ STORY PAGE TEMPLATE ============ */
+.story-header{
+  padding: 76px 0 52px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 700px 380px at 50% 100%, rgba(227,162,72,0.2), transparent 70%),
+    var(--night);
+}
+.story-header .eyebrow{ display: block; margin-bottom: 16px; }
+.story-origin{
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--slate);
+  margin: 0 0 22px;
+}
+.story-header h1{
+  font-size: clamp(32px, 5.2vw, 50px);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.story-tagline{
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(244,236,220,0.6);
+  max-width: 460px;
+  margin: 0 auto;
+}
+.author-avatar{
+  width: 96px; height: 96px; border-radius: 50%;
+  object-fit: cover; display: block;
+  margin: 16px auto 8px;
+  border: 2px solid var(--ember);
+}
+.story-credit{
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ember-bright);
+  margin: 10px auto 0;
+}
+.actions{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.cover-figure{ margin: 0 0 8px; }
+.cover-img{
+  aspect-ratio: 16/9;
+  border-radius: 6px;
+  overflow: hidden;
+  background: linear-gradient(160deg, #1f2e3d, #0e161f);
+}
+.cover-img img{ width: 100%; height: 100%; object-fit: cover; }
+figcaption{
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: var(--slate);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.story-content{
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 8px;
+  margin: 44px 0 0;
+  padding: 54px 62px 60px;
+}
+.story-content h2{
+  font-size: 23px;
+  color: var(--rust);
+  margin: 42px 0 16px;
+}
+.story-content h2:first-child{ margin-top: 0; }
+.story-content p{
+  font-size: 19px;
+  line-height: 1.75;
+  margin: 0 0 22px;
+}
+.story-content p:last-child{ margin-bottom: 0; }
+.dropcap::first-letter{
+  font-family: 'Fraunces', serif;
+  font-size: 62px;
+  font-weight: 600;
+  float: left;
+  line-height: 0.85;
+  margin: 4px 10px 0 0;
+  color: var(--rust);
+}
+.inline-figure{ margin: 34px -6px; }
+.inline-figure .cover-img{ aspect-ratio: 4/3; }
+
+.moral-box{
+  margin-top: 38px;
+  padding: 24px 26px;
+  background: rgba(138,62,62,0.06);
+  border-left: 3px solid var(--rust);
+  border-radius: 0 6px 6px 0;
+}
+.moral-box .eyebrow{ color: var(--rust); display: block; margin-bottom: 8px; }
+.moral-box p{ font-size: 17px; margin: 0; font-style: italic; }
+
+.discussion-box{
+  margin-top: 32px;
+  padding: 24px 26px;
+  background: rgba(92,122,137,0.08);
+  border-left: 3px solid var(--slate);
+  border-radius: 0 6px 6px 0;
+}
+.discussion-box .eyebrow{ color: var(--slate); display: block; margin-bottom: 10px; }
+.discussion-box ul{ margin: 0; padding-left: 20px; }
+.discussion-box li{ font-size: 16px; margin-bottom: 10px; }
+.discussion-box li:last-child{ margin-bottom: 0; }
+
+.download-strip{
+  margin: 44px 0 90px;
+  padding: 30px 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--night-deep);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.download-strip h3{ font-size: 17px; margin-bottom: 4px; }
+.download-strip p{
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(244,236,220,0.55);
+  margin: 0;
+}
+.download-buttons{ display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* Floral footer divider used at end of each tale */
+.flower-divider{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 36px 0 0;
+}
+.flower-divider img{
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  opacity: 0.85;
+  border: 2px solid var(--line);
+}
+.flower-divider .stem{
+  width: 60px;
+  height: 1px;
+  background: var(--line);
+}
+
+.share-notice{
+  margin-top: 30px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--rust);
+  opacity: 0.75;
+  line-height: 1.6;
+}
+.share-notice a{ color: var(--rust); text-decoration: underline; }
+
+/* ===== RELATED STORIES (internal linking) ===== */
+.related-stories{
+  margin: 0 0 90px;
+}
+.related-stories h2{
+  font-size: 22px;
+  margin-bottom: 22px;
+  text-align: center;
+}
+.related-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.related-card{
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--night-deep);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.related-card:hover{ transform: translateY(-3px); border-color: var(--ember); }
+.related-thumb{ aspect-ratio: 16/9; overflow: hidden; }
+.related-thumb img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.related-body{ padding: 16px 18px; }
+.related-eyebrow{
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ember);
+  display: block;
+  margin-bottom: 6px;
+}
+.related-title{
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+@media (max-width: 600px){
+  .story-content{ padding: 34px 22px 42px; }
+  .story-content p{ font-size: 17px; }
+  .download-strip{ flex-direction: column; align-items: flex-start; }
+  .nav-links{ display: none; }
+  .related-grid{ grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   Modal: Πρόσκληση Εθελοντών Αφηγητών
+   ============================================ */
+.afigites-backdrop[hidden]{ display: none; }
+.afigites-backdrop{
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(10,17,24,0.72);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.afigites-modal{
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 12px;
+  max-width: 480px; width: 100%;
+  padding: 40px 34px 34px;
+  position: relative;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.5);
+}
+.afigites-modal h3{
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  color: var(--rust);
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+.afigites-modal p{
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 14px;
+}
+.afigites-close{
+  position: absolute; top: 10px; right: 16px;
+  background: none; border: 0;
+  font-size: 30px; line-height: 1;
+  color: var(--slate);
+  cursor: pointer;
+  padding: 4px;
+}
+.afigites-close:hover{ color: var(--ink); }
+.afigites-actions{
+  display: flex; align-items: center; gap: 14px;
+  flex-wrap: wrap; margin-top: 22px;
+}
+.afigites-later{
+  background: none; border: 0;
+  font-family: 'Newsreader', serif;
+  font-size: 16px;
+  color: var(--slate);
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 6px 2px;
+}
+.afigites-later:hover{ color: var(--ink); }
+
+.badge-soon{
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(227,162,72,0.18);
+  color: var(--ember);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px){
+  .afigites-modal{ padding: 32px 22px 26px; }
+}
+
+
+/* ===== NAV DROPDOWN: Μύθοι & Παραμύθια ===== */
+.nav-drop{ position: relative; }
+.nav-drop-toggle{ text-decoration: none; color: var(--cream); opacity: 0.75; cursor: pointer; }
+.nav-drop:hover .nav-drop-toggle,
+.nav-drop:focus-within .nav-drop-toggle{ opacity: 1; }
+.nav-caret{ font-size: 10px; }
+.nav-drop-menu{
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  padding-top: 14px; display: none; z-index: 60;
+}
+.nav-drop:hover .nav-drop-menu,
+.nav-drop:focus-within .nav-drop-menu{ display: block; }
+.nav-drop-menu-inner{
+  background: var(--night-deep);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 270px;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.4);
+}
+.nav-drop-menu a,
+.nav-drop-soon{
+  display: block; padding: 10px 18px;
+  font-size: 14px; color: var(--cream);
+  opacity: 0.8; text-decoration: none; white-space: nowrap;
+}
+.nav-drop-menu a:hover{ opacity: 1; background: rgba(244,236,220,0.05); }
+.nav-drop-soon{ opacity: 0.45; cursor: default; }
+
+/* ===== BREADCRUMBS ===== */
+.crumbs{
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  color: var(--slate);
+  margin-bottom: 20px;
+}
+.crumbs a{ color: var(--slate); text-decoration: none; }
+.crumbs a:hover{ color: var(--ember-bright); }
+.crumbs .sep{ margin: 0 7px; opacity: 0.6; }
+.crumbs .here{ color: rgba(244,236,220,0.72); }
+
+/* ===== CATEGORY CHIPS (αρχική) ===== */
+.cat-chips{ display: flex; flex-wrap: wrap; gap: 10px; margin: -14px 0 42px; }
+.cat-chip{
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--ember-bright);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+a.cat-chip:hover{ border-color: var(--ember); background: rgba(227,162,72,0.08); }
+.cat-chip-soon{ color: var(--slate); }
