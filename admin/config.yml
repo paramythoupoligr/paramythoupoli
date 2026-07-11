@@ -1,0 +1,92 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "src/assets/uploads"
+public_folder: "/assets/img"
+
+locale: el
+site_url: https://paramythoupoli.gr
+logo_url: https://paramythoupoli.gr/assets/img/kentavros-toxotis-nav.webp
+
+collections:
+  - name: stories
+    label: "Παραμύθια & Μύθοι"
+    label_singular: "Ιστορία"
+    folder: "src/stories"
+    create: true
+    slug: "{{fields.slug}}"
+    identifier_field: title
+    sortable_fields: [number, title, date]
+    summary: "Νο. {{fields.number}} — {{title}}"
+    fields:
+      - { name: title, label: "Τίτλος", widget: string,
+          hint: "Όπως θα εμφανίζεται στη σελίδα. Π.χ. «Οι Δύο Λύκοι»" }
+
+      - { name: slug, label: "Διεύθυνση (URL)", widget: string,
+          pattern: ['^[a-z0-9\-]+$', "Μόνο μικρά λατινικά, αριθμοί και παύλες"],
+          hint: "Λατινικά, χωρίς κενά. Π.χ. dyo-lykoi → paramythoupoli.gr/stories/dyo-lykoi" }
+
+      - { name: number, label: "Αριθμός ιστορίας", widget: number, value_type: int, min: 1,
+          hint: "Ο επόμενος διαθέσιμος αριθμός" }
+
+      - name: category
+        label: "Κατηγορία"
+        widget: select
+        options:
+          - { label: "Αρχαίοι Ελληνικοί Μύθοι", value: archaioi }
+          - { label: "Ηράκλειοι Μύθοι", value: irakleioi }
+          - { label: "Μύθοι Αισώπου", value: aisopou }
+          - { label: "Παραδοσιακά Ελληνικά Παραμύθια", value: paradosiaka }
+          - { label: "Παγκόσμια Παραμυθοτράπεζα", value: pagkosmia }
+          - { label: "Συμμετοχή «Συμπολιτών» και Φίλων", value: symmetochi }
+
+      - { name: image, label: "Εικόνα εξωφύλλου", widget: image, media_library: { config: { multiple: false } },
+          hint: "Ανέβασε μία φωτογραφία. Οι 4 εκδοχές (μεγάλη/μικρή, jpg/webp) φτιάχνονται αυτόματα." }
+      - { name: imageAlt, label: "Περιγραφή εικόνας (alt)", widget: string,
+          hint: "Τι δείχνει η φωτογραφία — για όσους δεν τη βλέπουν και για το Google." }
+      - { name: imageCaption, label: "Λεζάντα εικόνας", widget: string, required: false,
+          hint: "Γιατί αυτή η εικόνα για αυτή την ιστορία." }
+
+      - { name: origin, label: "Προέλευση", widget: string, required: false,
+          hint: "Π.χ. «Παραβολή αποδιδόμενη στους Τσερόκι της Βόρειας Αμερικής»" }
+      - { name: tagline, label: "Εισαγωγική φράση", widget: text,
+          hint: "Η μία φράση κάτω από τον τίτλο, που τραβάει τον αναγνώστη μέσα." }
+
+      - { name: body, label: "Το κείμενο", widget: markdown,
+          hint: "«##» για κεφαλαία ενοτήτων. Η οριζόντια γραμμή (—) γίνεται λουλούδι-διαχωριστής. Το αρχικό γράμμα μπαίνει αυτόματα." }
+
+      - { name: moralLabel, label: "Τίτλος πλαισίου διδάγματος", widget: string, required: false, default: "Το δίδαγμα" }
+      - { name: moral, label: "Το δίδαγμα (προαιρετικό)", widget: text, required: false,
+          hint: "Οι νεότερες ιστορίες δεν το χρησιμοποιούν — το ήθος βγαίνει από τη δράση των χαρακτήρων." }
+
+      - { name: discussion, label: "Για συζήτηση", widget: list, required: false, collapsed: true,
+          field: { name: q, label: "Ερώτηση", widget: text },
+          hint: "Προαιρετικό — μόνο όταν υπάρχει πραγματική ανοιχτή ηθική ένταση." }
+
+      - { name: sourceNote, label: "Σημείωμα πηγής", widget: text, required: false, collapsed: true,
+          hint: "Από πού προέρχεται η ιστορία· και τι δεν είναι βέβαιο." }
+
+      - { name: author, label: "Συγγραφέας", widget: string, required: false,
+          hint: "Μόνο για επώνυμα έργα. Π.χ. «Γιώργος Σκλαβούνος»" }
+      - { name: credit, label: "Απόδοση", widget: string, required: false,
+          hint: "Π.χ. «Του Γιώργου Σκλαβούνου.»" }
+      - { name: authorAvatar, label: "Φωτογραφία συγγραφέα", widget: image, required: false }
+
+      - { name: seoTitle, label: "Τίτλος στο Google", widget: string,
+          pattern: ['^.{1,60}$', "Έως 60 χαρακτήρες — αλλιώς κόβεται στα αποτελέσματα"] }
+      - { name: seoDescription, label: "Περιγραφή στο Google", widget: text,
+          pattern: ['^.{1,158}$', "Έως 158 χαρακτήρες — αλλιώς κόβεται"] }
+      - { name: keywords, label: "Λέξεις-κλειδιά", widget: string }
+      - { name: cardExcerpt, label: "Περίληψη για την κάρτα", widget: text,
+          hint: "Εμφανίζεται στην αρχική και στη σελίδα κατηγορίας." }
+      - { name: cardAlt, label: "Περιγραφή εικόνας στην κάρτα (alt)", widget: string }
+      - { name: llmsSummary, label: "Περίληψη για μηχανές (llms.txt)", widget: text }
+
+      - { name: readingTime, label: "Χρόνος ανάγνωσης (λεπτά)", widget: number, value_type: int, min: 1 }
+      - { name: date, label: "Ημερομηνία δημοσίευσης", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+      - { name: updated, label: "Τελευταία ενημέρωση", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
+
+      - { name: related, label: "Διάβασε επίσης (χειροκίνητα)", widget: list, required: false, collapsed: true,
+          field: { name: slug, label: "Διεύθυνση ιστορίας", widget: string },
+          hint: "Άφησέ το κενό — οι συνδέσεις υπολογίζονται αυτόματα, χωρίς να μείνει καμία ιστορία ορφανή." }
