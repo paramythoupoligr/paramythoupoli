@@ -1,0 +1,13 @@
+{
+  "name": "paramythoupoli",
+  "version": "1.0.0",
+  "description": "Παραμυθούπολη — ψηφιακή βιβλιοθήκη παραμυθιών και μύθων για παιδιά",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "markdown-it": "^14.1.0"
+  }
+}
