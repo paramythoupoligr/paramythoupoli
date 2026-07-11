@@ -1,0 +1,45 @@
+name: Παραγωγή εικόνων, PDF και EPUB
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/stories/**'
+      - 'src/assets/uploads/**'
+      - 'scripts/build_assets.py'
+
+permissions:
+  contents: write
+
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Εγκατάσταση εξαρτήσεων συστήματος
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libpango-1.0-0 libpangoft2-1.0-0 libharfbuzz-subset0 fonts-dejavu
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Εγκατάσταση βιβλιοθηκών Python
+        run: pip install --quiet weasyprint ebooklib pillow pyyaml markdown-it-py
+
+      - name: Παραγωγή
+        run: python3 scripts/build_assets.py
+
+      - name: Commit αν άλλαξε κάτι
+        run: |
+          git config user.name  "Παραμυθούπολη bot"
+          git config user.email "bot@paramythoupoli.gr"
+          git add src/assets/img src/assets/downloads
+          if git diff --staged --quiet; then
+            echo "Καμία αλλαγή."
+          else
+            git commit -m "Αυτόματη παραγωγή εικόνων, PDF και EPUB"
+            git push
+          fi
