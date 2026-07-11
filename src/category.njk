@@ -1,0 +1,183 @@
+---
+pagination:
+  data: categories
+  size: 1
+  alias: cat
+  resolve: values
+permalink: "/{{ cat.slug }}.html"
+eleventyExcludeFromCollections: true
+---
+{%- set items = collections.byCategory[cat.key] -%}
+{%- set ogD = cat.ogDescription or cat.seoDescription -%}
+{%- set twD = cat.twitterDescription or cat.seoDescription -%}
+{%- set scD = cat.schemaDescription or cat.seoDescription -%}
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ cat.seoTitle | esc | safe }}</title>
+<meta name="description" content="{{ cat.seoDescription | esc | safe }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ site.url }}/{{ cat.slug }}">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Παραμυθούπολη">
+<meta property="og:title" content="{{ cat.seoTitle | esc | safe }}">
+<meta property="og:description" content="{{ ogD | esc | safe }}">
+<meta property="og:image" content="{{ site.url }}/assets/img/{{ cat.image }}">
+<meta property="og:url" content="{{ site.url }}/{{ cat.slug }}">
+<meta property="og:locale" content="el_GR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ cat.seoTitle | esc | safe }}">
+<meta name="twitter:description" content="{{ twD | esc | safe }}">
+<meta name="twitter:image" content="{{ site.url }}/assets/img/{{ cat.image }}">
+
+<link rel="stylesheet" href="assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ cat.name | jsonEsc | safe }}",
+  "description": "{{ scD | jsonEsc | safe }}",
+  "url": "{{ site.url }}/{{ cat.slug }}",
+  "inLanguage": "el-GR",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Παραμυθούπολη",
+    "url": "{{ site.url }}/"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ items | length }},
+    "itemListElement": [
+{%- for s in items %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "url": "{{ site.url }}/stories/{{ s.page.fileSlug }}"
+    }{% if not loop.last %},{% endif %}
+{%- endfor %}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Αρχική",
+      "item": "{{ site.url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ cat.name | jsonEsc | safe }}",
+      "item": "{{ site.url }}/{{ cat.slug }}"
+    }
+  ]
+}
+</script>
+<style>
+{%- include "category-style.css" -%}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="assets/img/kentavros-toxotis-nav.webp" alt="Παραμυθούπολη λογότυπο - Κένταυρος τοξότης" width="106" height="106">
+      Παραμυθούπολη
+    </a>
+    <div class="nav-links">
+      <a href="/#about">Ποιοι Είμαστε</a>
+      <div class="nav-drop">
+        <a href="/#stories" class="nav-drop-toggle">Μύθοι &amp; Παραμύθια <span class="nav-caret">▾</span></a>
+        <div class="nav-drop-menu">
+          <div class="nav-drop-menu-inner">
+{%- for c in categories | values %}
+            <a href="/{{ c.slug }}">{{ c.name }}</a>
+{%- endfor %}
+          </div>
+        </div>
+      </div>
+      <a href="/#community">Συμμετοχή «Συμπολιτών» και Φίλων</a>
+      <a href="/#contact">Επικοινωνία</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="stories">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="breadcrumb"><a href="/">Αρχική</a><span class="sep">›</span><span class="here">{{ cat.name }}</span></nav>
+
+    <div class="stories-head">
+      <h1>{{ cat.name }}</h1>
+      <span class="stories-count">{{ items | length }} ιστορίες · ανοιχτές σε όλους</span>
+    </div>
+
+    <div class="cat-intro">
+      <p>{{ cat.intro | esc | safe }}</p>
+{%- if cat.note %}
+      <p class="cat-note">{{ cat.note | safe }}</p>
+{%- endif %}
+    </div>
+
+    <div class="story-grid">
+{%- for s in items %}
+{%- set d = s.data %}
+{%- set b = d.image %}
+      <a href="stories/{{ s.page.fileSlug }}" class="story-card">
+        <div class="story-thumb">
+          <picture>
+        <source media="(max-width: 600px)" srcset="assets/img/{{ b | small('webp') }}" type="image/webp">
+        <source media="(max-width: 600px)" srcset="assets/img/{{ b | small('jpg') }}" type="image/jpeg">
+        <source srcset="assets/img/{{ b | ext('webp') }}" type="image/webp">
+        <img src="assets/img/{{ b }}" alt="{{ d.cardAlt | esc | safe }}" loading="lazy">
+      </picture>
+          <span class="story-thumb-badge">{{ cat.name }}</span>
+        </div>
+        <div class="story-body">
+          <span class="story-num">Νο. {{ d.number | pad2 }}</span>
+          <h3 class="story-title">{{ d.title | esc | safe }}</h3>
+          <p class="story-excerpt">{{ (d.cardExcerptCategory or d.cardExcerpt) | esc | safe }}</p>
+          <span class="story-meta">✦ Online · PDF · EPUB</span>
+        </div>
+      </a>
+{%- endfor %}
+
+    </div>
+
+    <p class="cat-back"><a href="/#stories">← Όλες οι ιστορίες της Παραμυθούπολης</a></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Παραμυθούπολη — Μια μη κερδοσκοπική πρωτοβουλία Φιλόμυθων. All Rights Reserved. · <a href="terms">Όροι Χρήσης &amp; Πνευματική Ιδιοκτησία</a> · <a href="afigites">Γίνε αφηγητής</a></p>
+    <p>paramythoupoli.gr</p>
+  </div>
+</footer>
+
+<script data-goatcounter="https://paramythoupoligr.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+
+  .stories{ padding: 56px 0 110px; }
+  .stories-head{
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 44px; flex-wrap: wrap; gap: 12px;
+  }
+  .stories-head h1{ font-size: 36px; margin: 0; }
+  .stories-count{ font-family: 'Inter', sans-serif; font-size: 13px; color: var(--slate); }
+  .cat-intro{ max-width: 720px; margin: 0 0 46px; }
+  .cat-intro p{ font-size: 17.5px; line-height: 1.65; color: rgba(244,236,220,0.82); margin: 0 0 16px; }
+  .cat-intro .cat-note{ font-family: 'Inter', sans-serif; font-size: 14px; color: var(--slate); border-left: 2px solid var(--ember); padding-left: 14px; }
+
+  .story-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .story-card{
+    text-decoration: none; color: var(--cream);
+    display: flex; flex-direction: column;
+    border-radius: 5px; overflow: hidden;
+    background: var(--night-deep);
+    border: 1px solid var(--line);
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .story-card:hover{ transform: translateY(-3px); border-color: var(--ember); }
+  .story-thumb{ aspect-ratio: 4/3; position: relative; overflow: hidden; }
+  .story-thumb img{ width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+  .story-card:hover .story-thumb img{ transform: scale(1.05); }
+  .story-thumb-badge{
+    position: absolute; top: 10px; left: 10px;
+    background: rgba(10,17,24,0.7);
+    backdrop-filter: blur(4px);
+    color: var(--ember-bright);
+    font-family: 'Inter', sans-serif;
+    font-size: 10px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+    padding: 5px 9px; border-radius: 100px;
+  }
+  .story-body{ padding: 18px 20px 22px; display: flex; flex-direction: column; flex: 1; }
+  .story-num{ font-family: 'Inter', sans-serif; font-size: 11.5px; color: var(--ember); font-weight: 600; margin-bottom: 7px; }
+  .story-title{ font-family: 'Fraunces', serif; font-size: 19px; font-weight: 600; line-height: 1.25; margin-bottom: 9px; }
+  .story-excerpt{ font-family: 'Newsreader', serif; font-size: 14.5px; color: rgba(244,236,220,0.6); line-height: 1.5; flex: 1; margin: 0 0 14px; }
+  .story-meta{ font-family: 'Inter', sans-serif; font-size: 11.5px; color: var(--slate); }
+  .cat-back{ margin-top: 54px; }
+  .cat-back a{ font-family: 'Inter', sans-serif; font-size: 14px; color: var(--ember-bright); text-decoration: none; }
+  .cat-back a:hover{ text-decoration: underline; }
+
+  @media (max-width: 860px){ .story-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .story-grid{ grid-template-columns: 1fr; } .stories-head h1{ font-size: 30px; } }

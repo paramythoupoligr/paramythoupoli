@@ -1,0 +1,243 @@
+---
+permalink: "/stories/{{ page.fileSlug }}.html"
+---
+{%- set cat = site.categories[category] -%}
+{%- set slug = page.fileSlug -%}
+{%- set img = image -%}
+{%- set base = img | replace(".jpg", "") | replace(".png", "") | replace(".webp", "") -%}
+{%- set ogDesc = ogDescription or seoDescription -%}
+{%- set twDesc = twitterDescription or seoDescription -%}
+{%- set scDesc = schemaDescription or seoDescription -%}
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ seoTitle | esc | safe }}</title>
+<meta name="description" content="{{ seoDescription | esc | safe }}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{{ site.url }}/stories/{{ slug }}">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Παραμυθούπολη">
+<meta property="og:title" content="{{ seoTitle | esc | safe }}">
+<meta property="og:description" content="{{ ogDesc | esc | safe }}">
+<meta property="og:image" content="{{ site.url }}/assets/img/{{ img }}">
+<meta property="og:url" content="{{ site.url }}/stories/{{ slug }}">
+<meta property="og:locale" content="el_GR">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ seoTitle | esc | safe }}">
+<meta name="twitter:description" content="{{ twDesc | esc | safe }}">
+<meta name="twitter:image" content="{{ site.url }}/assets/img/{{ img }}">
+
+<link rel="stylesheet" href="../assets/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ (headline or title) | jsonEsc | safe }}",
+  "description": "{{ scDesc | jsonEsc | safe }}",
+  "image": "{{ site.url }}/assets/img/{{ img }}",
+  "author": {
+{%- if author %}
+    "@type": "Person",
+    "name": "{{ author | esc | safe }}"
+{%- else %}
+    "@type": "Organization",
+    "name": "Παραμυθούπολη",
+    "url": "{{ site.url }}/"
+{%- endif %}
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Παραμυθούπολη",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}/assets/img/{{ site.logo }}"
+    }
+  },
+  "datePublished": "{{ date | isoDate }}",
+  "dateModified": "{{ updated | isoDate }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}/stories/{{ slug }}"
+  },
+  "keywords": "{{ keywords | jsonEsc | safe }}",
+  "inLanguage": "el-GR",
+  "isAccessibleForFree": true,
+  "timeRequired": "PT{{ readingTime }}M"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Αρχική",
+      "item": "{{ site.url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ cat.name }}",
+      "item": "{{ site.url }}/{{ cat.slug }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ title | esc | safe }}",
+      "item": "{{ site.url }}/stories/{{ slug }}"
+    }
+  ]
+}
+</script>
+<script src="../assets/script.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../assets/img/kentavros-toxotis-nav.webp" alt="Παραμυθούπολη λογότυπο - Κένταυρος τοξότης" width="106" height="106">
+      Παραμυθούπολη
+    </a>
+    <a href="../#stories" class="back-link">← Όλα τα παραμύθια</a>
+  </div>
+</nav>
+
+<header class="story-header">
+  <div class="wrap-narrow">
+    <nav class="crumbs" aria-label="breadcrumb"><a href="../">Αρχική</a><span class="sep">›</span><a href="../{{ cat.slug }}">{{ cat.name }}</a><span class="sep">›</span><span class="here">{{ title | esc | safe }}</span></nav>
+    <span class="eyebrow">{{ cat.name }} Νο. {{ number | pad2 }} · Διάρκεια ανάγνωσης ≈ {{ readingTime }} λεπτά</span>
+    <h1>{{ (titleHtml or title) | safe }}</h1>
+{%- if origin %}
+    <p class="story-origin">{{ origin | esc | safe }}</p>
+{%- endif %}
+    <p class="story-tagline">{{ tagline | esc | safe }}</p>
+{%- if authorAvatar %}
+    <img src="../assets/img/{{ authorAvatar }}" alt="Ο {{ author | esc | safe }}" width="96" height="96" class="author-avatar">
+{%- endif %}
+{%- if credit %}
+    <p class="story-credit">{{ credit | esc | safe }}</p>
+{%- endif %}
+    <div class="actions">
+      <a href="../assets/downloads/{{ slug }}.pdf" download class="btn btn-primary">⭱ Λήψη σε PDF</a>
+      <a href="../assets/downloads/{{ slug }}.epub" download class="btn btn-ghost">Λήψη σε EPUB</a>
+      <a href="#" onclick="openAfigitesModal(); return false;" class="btn btn-ghost">🎧 Ακρόαση <span class="badge-soon">σύντομα</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap-narrow">
+
+  <figure class="cover-figure">
+    <div class="cover-img"><picture><source media="(max-width: 600px)" srcset="../assets/img/{{ img | small('webp') }}" type="image/webp"><source media="(max-width: 600px)" srcset="../assets/img/{{ img | small('jpg') }}" type="image/jpeg"><source srcset="../assets/img/{{ img | ext('webp') }}" type="image/webp"><img src="../assets/img/{{ img }}" alt="{{ imageAlt | esc | safe }}" fetchpriority="high"></picture></div>
+{%- if imageCaption %}
+    <figcaption>{{ imageCaption | esc | safe }}</figcaption>
+{%- endif %}
+  </figure>
+
+  <article class="story-content">
+
+{%- set body = content | storyBody(img) -%}
+{%- set flower %}
+    <div class="flower-divider">
+      <div class="stem"></div>
+      <img src="../assets/img/{{ img }}" alt="" loading="lazy">
+      <div class="stem"></div>
+    </div>
+{%- endset -%}
+{%- set moralBlock %}
+{%- if moral %}
+
+    <div class="moral-box">
+      <span class="eyebrow">{{ moralLabel | esc | safe }}</span>
+      <p>{{ moral | esc | safe }}</p>
+    </div>
+{{ flower | safe }}
+{%- endif %}
+{%- if discussion %}
+
+    <div class="discussion-box">
+      <span class="eyebrow">Για συζήτηση</span>
+      <ul>
+{%- for q in discussion %}
+        <li>{{ q | esc | safe }}</li>
+{%- endfor %}
+      </ul>
+    </div>
+{{ flower | safe }}
+{%- endif %}
+{%- endset -%}
+{%- if "<!-- ΔΙΔΑΓΜΑ -->" in body -%}
+{{ body | replace("<!-- ΔΙΔΑΓΜΑ -->", moralBlock) | safe }}
+{%- else -%}
+{{ body | safe }}
+{{ moralBlock | safe }}
+{%- endif %}
+
+{%- if sourceNote %}
+
+    <p class="share-notice">Σημείωμα πηγής: {{ sourceNote | esc | safe }}</p>
+{%- endif %}
+
+    <p class="share-notice">{{ site.shareNotice | safe }}</p>
+
+  </article>
+
+  <div class="download-strip">
+    <div>
+      <h3>Πάρε το παραμύθι μαζί σου</h3>
+      <p>Διάβασέ το offline, στο κινητό ή στον υπολογιστή σου.</p>
+    </div>
+    <div class="download-buttons">
+      <a href="../assets/downloads/{{ slug }}.pdf" download class="btn btn-primary">⭱ PDF</a>
+      <a href="../assets/downloads/{{ slug }}.epub" download class="btn btn-ghost">EPUB</a>
+      <a href="#" onclick="openAfigitesModal(); return false;" class="btn btn-ghost">🎧 Ακρόαση <span class="badge-soon">σύντομα</span></a>
+    </div>
+  </div>
+
+  <section class="related-stories">
+    <h2>Διάβασε επίσης</h2>
+    <div class="related-grid">
+{%- for r in collections.related[slug] %}
+{%- set rs = collections.stories | find(r) %}
+{%- set rcat = site.categories[rs.data.category] %}
+      <a href="{{ r }}" class="related-card">
+        <div class="related-thumb"><picture><source media="(max-width: 600px)" srcset="../assets/img/{{ rs.data.image | small('webp') }}" type="image/webp"><source media="(max-width: 600px)" srcset="../assets/img/{{ rs.data.image | small('jpg') }}" type="image/jpeg"><source srcset="../assets/img/{{ rs.data.image | ext('webp') }}" type="image/webp"><img src="../assets/img/{{ rs.data.image }}" alt="{{ rs.data.title | esc | safe }}" loading="lazy"></picture></div>
+        <div class="related-body">
+          <span class="related-eyebrow">{{ rcat.name }}</span>
+          <span class="related-title">{{ rs.data.title | esc | safe }}</span>
+        </div>
+      </a>
+{%- endfor %}
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>© 2026 Παραμυθούπολη — Μια μη κερδοσκοπική πρωτοβουλία Φιλόμυθων. All Rights Reserved. · <a href="../terms">Όροι Χρήσης &amp; Πνευματική Ιδιοκτησία</a> · <a href="../afigites">Γίνε αφηγητής</a></p>
+    <p>paramythoupoli.gr</p>
+  </div>
+</footer>
+
+<script data-goatcounter="https://paramythoupoligr.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+</body>
+</html>

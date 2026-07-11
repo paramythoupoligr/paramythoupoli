@@ -1,0 +1,18 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+{%- include "llms-intro.md" -%}
+## Κατηγορίες
+
+{% for c in categories | values -%}
+- [{{ c.name }}]({{ site.url }}/{{ c.slug }})
+{% endfor %}
+## Παραμύθια
+
+{% for c in categories | values -%}
+{%- for s in collections.byCategory[c.key] -%}
+- [{{ s.data.title }}]({{ site.url }}/stories/{{ s.page.fileSlug }}): {{ s.data.llmsSummary }}
+{% endfor -%}
+{%- endfor %}
+{% include "llms-tail.md" -%}
