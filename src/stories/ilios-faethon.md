@@ -3,7 +3,7 @@ title: "Ο Ήλιος και ο Φαέθων"
 titleHtml: "Ο Ήλιος<br>και ο Φαέθων"
 number: 6
 category: archaioi
-image: "kaktos-anthos-melissa.jpg"
+image: "/assets/img/kaktos-anthos-melissa.jpg"
 imageAlt: "Κόκκινο λουλούδι σαν ήλιος"
 imageCaption: "Το χρυσό άρμα του Ήλιου, ψηλά στον ουρανό"
 origin: "Έτσι το αφηγήθηκε ο Κένταυρος στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."

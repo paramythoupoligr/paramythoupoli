@@ -3,7 +3,7 @@ title: "Η Αλεπού και ο Κόρακας"
 titleHtml: "Η Αλεπού<br>και ο Κόρακας"
 number: 7
 category: aisopou
-image: "kyklamino-roz.jpg"
+image: "/assets/img/kyklamino-roz.jpg"
 imageAlt: "Ροζ κυκλάμινο με βυσσινί κέντρο"
 imageCaption: "Το τυρί, λαμπερό και κίτρινο, τράβηξε την προσοχή του κόρακα"
 origin: "Έτσι το αφηγήθηκε η Σοφή Κουκουβάγια στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."

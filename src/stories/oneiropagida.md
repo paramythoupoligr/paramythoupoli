@@ -3,7 +3,7 @@ title: "Ο Μύθος της Ονειροπαγίδας"
 titleHtml: "Ο Μύθος<br>της Ονειροπαγίδας"
 number: 11
 category: pagkosmia
-image: "primoyla-leyki-oneiropagida.jpg"
+image: "/assets/img/primoyla-leyki-oneiropagida.jpg"
 imageAlt: "Λευκή πριμούλα με πορτοκαλί καρδιά"
 imageCaption: "Η πριμούλα ανοίγει τα πέταλά της με το πρώτο φως, όπως τα καλά όνειρα περνούν τον ιστό της Ονειροπαγίδας"
 origin: "The Legend of the Dreamcatcher — Μύθος των Οτζίμπουε / Λακότα"

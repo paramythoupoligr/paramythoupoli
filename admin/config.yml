@@ -2,7 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "src/assets/uploads"
+media_folder: "src/assets/img"
 public_folder: "/assets/img"
 
 locale: el

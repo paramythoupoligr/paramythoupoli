@@ -3,7 +3,7 @@ title: "Η Μαμά Κυρά Ποντικίνα"
 titleHtml: "Η Μαμά<br>Κυρά Ποντικίνα"
 number: 4
 category: paradosiaka
-image: "paparoynes-livadi.jpg"
+image: "/assets/img/paparoynes-livadi.jpg"
 imageAlt: "Κόκκινες παπαρούνες"
 imageCaption: "Στο εγκαταλελειμμένο χωριό, δίπλα στον παλιό πύργο"
 origin: "Έτσι το αφηγήθηκε η Σοφή Κουκουβάγια στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."

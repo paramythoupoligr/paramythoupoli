@@ -3,7 +3,7 @@ title: "Ο Μίδας και τα Αστεία Αυτιά"
 titleHtml: "Ο Μίδας και<br>τα Αστεία Αυτιά"
 number: 2
 category: archaioi
-image: "narkissos-kitrinos-midas.jpg"
+image: "/assets/img/narkissos-kitrinos-midas.jpg"
 imageAlt: "Κίτρινοι νάρκισσοι"
 imageCaption: "Ο Μίδας — τόσο φίλαυτος όσο ο μυθικός Νάρκισσος"
 origin: "Έτσι το αφηγήθηκε ο Κένταυρος στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."

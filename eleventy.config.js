@@ -14,7 +14,7 @@ export default function (eleventyConfig) {
     `<div class="flower-divider">\n      <div class="stem"></div>\n` +
     `      <img src="../assets/img/${im}" alt="" loading="lazy">\n` +
     `      <div class="stem"></div>\n    </div>`;
-  md.renderer.rules.hr = (t, i, o, env) => divider(env.image);
+  md.renderer.rules.hr = (t, i, o, env) => divider(imgFile(env.image));
 
   // Η πρώτη παράγραφος του σώματος παίρνει dropcap — αυτόματα.
   md.renderer.rules.paragraph_open = (tokens, i, opts, env) => {
@@ -124,6 +124,8 @@ export default function (eleventyConfig) {
   });
 
   // ---------- φίλτρα ----------
+  // Το CMS γράφει "/assets/img/x.jpg" — τα templates θέλουν "x.jpg"
+  eleventyConfig.addFilter("imgFile", imgFile);
   eleventyConfig.addFilter("slugOf", slugOf);
   eleventyConfig.addFilter("small", (f, e) => small(f, e));
   eleventyConfig.addFilter("ext", (f, e) => ext(f, e));
@@ -155,12 +157,15 @@ export default function (eleventyConfig) {
   };
 }
 
+function imgFile(f) {
+  return String(f || "").replace(/^.*\/assets\/img\//, "");
+}
 function slugOf(item) {
   return item.page.fileSlug;
 }
 function ext(f, e) {
-  return f.replace(/\.[a-z]+$/i, "." + e);
+  return imgFile(f).replace(/\.[a-z]+$/i, "." + e);
 }
 function small(f, e) {
-  return f.replace(/\.[a-z]+$/i, "-small." + e);
+  return imgFile(f).replace(/\.[a-z]+$/i, "-small." + e);
 }

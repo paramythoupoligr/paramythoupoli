@@ -3,7 +3,7 @@ title: "Ο Άτυχος Ψαράς και το Αχόρταγο Μάτι"
 titleHtml: "Ο Άτυχος Ψαράς<br>και το Αχόρταγο Μάτι"
 number: 3
 category: paradosiaka
-image: "primoyla-roz.jpg"
+image: "/assets/img/primoyla-roz.jpg"
 imageAlt: "Ροζ πρίμουλα"
 imageCaption: "Στο μικρό ψαροχώρι του κυρ Μιχάλη"
 origin: "Έτσι το αφηγήθηκε η Σοφή Κουκουβάγια στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."

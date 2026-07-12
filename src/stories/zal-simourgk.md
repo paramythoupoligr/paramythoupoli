@@ -3,7 +3,7 @@ title: "Ο Ζαλ και το Σιμούργκ"
 titleHtml: "Ο Ζαλ<br>και το Σιμούργκ"
 number: 12
 category: pagkosmia
-image: "toulipes-agries-vouno-zal.jpg"
+image: "/assets/img/toulipes-agries-vouno-zal.jpg"
 imageAlt: "Περσικός μύθος: Ο Ζαλ και το Σιμούργκ - άγριες τουλίπες στα βουνά της Περσίας"
 imageCaption: "Άγριες τουλίπες ανθίζουν στις πέτρες των ψηλών βουνών της Περσίας — σαν το Αλμπόρζ, όπου φώλιαζε το Σιμούργκ"
 origin: "Μύθος της Περσίας — από το Σαχναμέ, το Βιβλίο των Βασιλέων"

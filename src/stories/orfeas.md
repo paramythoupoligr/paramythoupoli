@@ -3,7 +3,7 @@ title: "Ο Ορφέας και η Μαγική Λύρα"
 titleHtml: "Ο Ορφέας και<br>η Μαγική Λύρα"
 number: 5
 category: archaioi
-image: "manolia-leyki.jpg"
+image: "/assets/img/manolia-leyki.jpg"
 imageAlt: "Λευκή μανώλια"
 imageCaption: "Η Ευρυδίκη, υπέροχη ομορφιά, ευγένεια και καλοσύνη"
 origin: "Έτσι το αφηγήθηκε ο Κένταυρος στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."

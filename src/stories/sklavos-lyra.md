@@ -3,7 +3,7 @@ title: "Ο Σκλάβος και η Χρυσή Λύρα"
 titleHtml: "Ο Σκλάβος και<br>η Χρυσή Λύρα"
 number: 8
 category: paradosiaka
-image: "foyxia-kokkini.jpg"
+image: "/assets/img/foyxia-kokkini.jpg"
 imageAlt: "Φούξια με νήματα-χορδές"
 imageCaption: "Οι χορδές της χρυσής λύρας, κρυμμένες πίσω από μια σπασμένη πέτρα"
 origin: "Έτσι το αφηγήθηκε ο Κένταυρος στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."

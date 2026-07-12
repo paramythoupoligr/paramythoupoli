@@ -3,7 +3,7 @@ title: "Το Δυνατότερο Ζώο του Δάσους"
 titleHtml: "Το Δυνατότερο<br>Ζώο του Δάσους"
 number: 9
 category: paradosiaka
-image: "kaktos-anthos-roz.jpg"
+image: "/assets/img/kaktos-anthos-roz.jpg"
 imageAlt: "Ροζ άστρο-λουλούδι"
 imageCaption: "Η Σοφή Κουκουβάγια, στο πιο ψηλό δέντρο του δάσους"
 origin: "Έτσι το αφηγήθηκε η Σοφή Κουκουβάγια στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."

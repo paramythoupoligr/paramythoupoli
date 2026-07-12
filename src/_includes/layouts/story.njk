@@ -3,7 +3,7 @@ permalink: "/stories/{{ page.fileSlug }}.html"
 ---
 {%- set cat = site.categories[category] -%}
 {%- set slug = page.fileSlug -%}
-{%- set img = image -%}
+{%- set img = image | imgFile -%}
 {%- set base = img | replace(".jpg", "") | replace(".png", "") | replace(".webp", "") -%}
 {%- set ogDesc = ogDescription or seoDescription -%}
 {%- set twDesc = twitterDescription or seoDescription -%}
@@ -128,7 +128,7 @@ permalink: "/stories/{{ page.fileSlug }}.html"
 {%- endif %}
     <p class="story-tagline">{{ tagline | esc | safe }}</p>
 {%- if authorAvatar %}
-    <img src="../assets/img/{{ authorAvatar }}" alt="Ο {{ author | esc | safe }}" width="96" height="96" class="author-avatar">
+    <img src="../assets/img/{{ authorAvatar | imgFile }}" alt="Ο {{ author | esc | safe }}" width="96" height="96" class="author-avatar">
 {%- endif %}
 {%- if credit %}
     <p class="story-credit">{{ credit | esc | safe }}</p>
@@ -217,7 +217,7 @@ permalink: "/stories/{{ page.fileSlug }}.html"
 {%- set rs = collections.stories | find(r) %}
 {%- set rcat = site.categories[rs.data.category] %}
       <a href="{{ r }}" class="related-card">
-        <div class="related-thumb"><picture><source media="(max-width: 600px)" srcset="../assets/img/{{ rs.data.image | small('webp') }}" type="image/webp"><source media="(max-width: 600px)" srcset="../assets/img/{{ rs.data.image | small('jpg') }}" type="image/jpeg"><source srcset="../assets/img/{{ rs.data.image | ext('webp') }}" type="image/webp"><img src="../assets/img/{{ rs.data.image }}" alt="{{ rs.data.title | esc | safe }}" loading="lazy"></picture></div>
+        <div class="related-thumb"><picture><source media="(max-width: 600px)" srcset="../assets/img/{{ rs.data.image | imgFile | small('webp') }}" type="image/webp"><source media="(max-width: 600px)" srcset="../assets/img/{{ rs.data.image | imgFile | small('jpg') }}" type="image/jpeg"><source srcset="../assets/img/{{ rs.data.image | imgFile | ext('webp') }}" type="image/webp"><img src="../assets/img/{{ rs.data.image | imgFile }}" alt="{{ rs.data.title | esc | safe }}" loading="lazy"></picture></div>
         <div class="related-body">
           <span class="related-eyebrow">{{ rcat.name }}</span>
           <span class="related-title">{{ rs.data.title | esc | safe }}</span>

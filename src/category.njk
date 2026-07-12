@@ -142,7 +142,7 @@ eleventyExcludeFromCollections: true
     <div class="story-grid">
 {%- for s in items %}
 {%- set d = s.data %}
-{%- set b = d.image %}
+{%- set b = d.image | imgFile %}
       <a href="stories/{{ s.page.fileSlug }}" class="story-card">
         <div class="story-thumb">
           <picture>

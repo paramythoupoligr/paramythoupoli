@@ -30,30 +30,40 @@ FULL_W, SMALL_W = 1024, 600
 
 # ──────────────────────────── 1. ΕΙΚΟΝΕΣ ────────────────────────────
 
+def is_variant(name):
+    """Είναι παράγωγο (μικρή έκδοση ή webp), όχι πρωτότυπο;"""
+    stem = os.path.splitext(name)[0]
+    return stem.endswith('-small') or name.lower().endswith('.webp')
+
 def build_images():
-    """Κάθε πρωτότυπη εικόνα → 4 εκδοχές. Ό,τι υπάρχει ήδη, παραλείπεται."""
+    """Για κάθε πρωτότυπη εικόνα στο img/, φτιάχνει όσες από τις 4 εκδοχές λείπουν.
+    Το CMS ανεβάζει απευθείας εδώ — οι υπόλοιπες εκδοχές παράγονται αυτόματα."""
     made = 0
-    for src in sorted(glob.glob(os.path.join(UP, '*'))):
-        if not src.lower().endswith(('.jpg', '.jpeg', '.png', '.webp')):
+    sources = sorted(glob.glob(os.path.join(IMG, '*'))) + sorted(glob.glob(os.path.join(UP, '*')))
+    for src in sources:
+        name = os.path.basename(src)
+        if not name.lower().endswith(('.jpg', '.jpeg', '.png')):
             continue
-        base = os.path.splitext(os.path.basename(src))[0]
+        if is_variant(name):
+            continue
+        base = os.path.splitext(name)[0]
         targets = {
             f'{base}.jpg':        (FULL_W,  'JPEG', 78),
             f'{base}.webp':       (FULL_W,  'WEBP', 76),
             f'{base}-small.jpg':  (SMALL_W, 'JPEG', 78),
             f'{base}-small.webp': (SMALL_W, 'WEBP', 75),
         }
-        if all(os.path.exists(os.path.join(IMG, t)) for t in targets):
+        missing = {k: v for k, v in targets.items() if not os.path.exists(os.path.join(IMG, k))}
+        if not missing:
             continue
         im = Image.open(src).convert('RGB')
-        for name, (w, fmt, q) in targets.items():
-            h = round(im.height * w / im.width)
-            out = im.resize((w, h), Image.LANCZOS)
+        for fname, (w, fmt, q) in missing.items():
+            out = im if im.width <= w else im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
             kw = dict(quality=q, optimize=True, progressive=True) if fmt == 'JPEG' \
                  else dict(quality=q, method=6)
-            out.save(os.path.join(IMG, name), fmt, **kw)
+            out.save(os.path.join(IMG, fname), fmt, **kw)
             made += 1
-        print(f'  🖼  {base}: 4 εκδοχές')
+        print(f'  🖼  {base}: +{len(missing)} εκδοχές')
     return made
 
 # ──────────────────────────── ΑΝΑΓΝΩΣΗ ΔΕΔΟΜΕΝΩΝ ────────────────────────────
@@ -64,6 +74,9 @@ def read_story(path):
     d = yaml.safe_load(m.group(1))
     d['slug'] = os.path.basename(path)[:-3]
     d['body'] = m.group(2)
+    for k in ('image', 'authorAvatar'):
+        if d.get(k):
+            d[k] = re.sub(r'^.*/assets/img/', '', str(d[k]))
     return d
 
 CATNAME = {

@@ -450,7 +450,7 @@ eleventyExcludeFromCollections: true
 {%- for s in collections.stories %}
 {%- set d = s.data %}
 {%- set c = site.categories[d.category] %}
-{%- set b = d.image %}
+{%- set b = d.image | imgFile %}
       <a href="stories/{{ s.page.fileSlug }}" class="story-card">
         <div class="story-thumb">
           <picture>

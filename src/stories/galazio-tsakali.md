@@ -3,7 +3,7 @@ title: "Το Γαλάζιο Τσακάλι"
 titleHtml: "Το Γαλάζιο<br>Τσακάλι"
 number: 13
 category: pagkosmia
-image: "triantafyllia-damaskini-tsakali.jpg"
+image: "/assets/img/triantafyllia-damaskini-tsakali.jpg"
 imageAlt: "Μύθος από το Καλίλα και Ντίμνα: Το Γαλάζιο Τσακάλι - δωρεάν παραμύθι για παιδιά"
 imageCaption: "Η δαμασκηνή τριανταφυλλιά, το ρόδο της Ανατολής — στους κήπους της ταξίδεψαν τα παραμύθια από την Ινδία ως την Περσία"
 origin: "Μύθος από το «Καλίλα και Ντίμνα» — ένα παραμύθι που ταξίδεψε από την Ινδία στην Περσία"

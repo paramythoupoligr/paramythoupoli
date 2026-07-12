@@ -3,7 +3,7 @@ title: "Το Αηδόνι και το Τριαντάφυλλο"
 titleHtml: "Το Αηδόνι και<br>το Τριαντάφυλλο"
 number: 14
 category: pagkosmia
-image: "triantafyllia-kipos-persia-aidoni.jpg"
+image: "/assets/img/triantafyllia-kipos-persia-aidoni.jpg"
 imageAlt: "Περσικό παραμύθι: Το Αηδόνι και το Τριαντάφυλλο - τριανταφυλλιά σε περσικό κήπο"
 imageCaption: "Μια τριανταφυλλιά ανθίζει σε αυλή περσικού κήπου — κάπως έτσι θα έμοιαζε ο κήπος του Ισπαχάν"
 origin: "Μύθος της Περσίας — από την παράδοση του Ρόδου και του Αηδονιού"

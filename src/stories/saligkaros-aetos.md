@@ -3,7 +3,7 @@ title: "Ο Σαλίγκαρος και ο Αετός"
 titleHtml: "Ο Σαλίγκαρος<br>και ο Αετός"
 number: 10
 category: paradosiaka
-image: "triantafylla-kokkina-kipos.jpg"
+image: "/assets/img/triantafylla-kokkina-kipos.jpg"
 imageAlt: "Κόκκινα τριαντάφυλλα"
 imageCaption: "Στη ρίζα της αρχαίας βελανιδιάς, ζούσε ο μικρός σαλίγκαρος"
 origin: "Έτσι το αφηγήθηκε η Σοφή Κουκουβάγια στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."

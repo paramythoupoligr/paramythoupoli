@@ -3,7 +3,7 @@ title: "Οι Δύο Λύκοι"
 titleHtml: "Οι Δύο<br>Λύκοι"
 number: 22
 category: pagkosmia
-image: "hamomili-tsouknida-dyo-lykoi.jpg"
+image: "/assets/img/hamomili-tsouknida-dyo-lykoi.jpg"
 imageAlt: "Παραβολή των Τσερόκι: Οι Δύο Λύκοι - χαμομήλι και τσουκνίδα δίπλα δίπλα στο ίδιο λιβάδι"
 imageCaption: "Χαμομήλι και τσουκνίδα, το ένα πλάι στο άλλο, στο ίδιο χώμα — δύο φύσεις που φυτρώνουν μαζί, και δυναμώνει όποια ποτίσεις"
 origin: "Παραβολή αποδιδόμενη στους ιθαγενείς Τσερόκι της Βόρειας Αμερικής"

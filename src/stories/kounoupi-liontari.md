@@ -3,7 +3,7 @@ title: "Το Κουνούπι και το Λιοντάρι"
 titleHtml: "Το Κουνούπι<br>και το Λιοντάρι"
 number: 1
 category: aisopou
-image: "kaktos-leykos-melisses.jpg"
+image: "/assets/img/kaktos-leykos-melisses.jpg"
 imageAlt: "Λευκό άνθος κάκτου με μέλισσες"
 imageCaption: "Μικρά πλάσματα γύρω από ένα μεγαλόπρεπο άνθος — σαν το μικρό κουνούπι δίπλα στο λιοντάρι"
 origin: "Έτσι το αφηγήθηκε η Σοφή Κουκουβάγια στα παιδιά του Νηπιαγωγείου, ένα βράδυ στο Πήλιο."
