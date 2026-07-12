@@ -1,0 +1,11 @@
+<footer>
+  <div class="footer-inner">
+    <nav class="footer-cats" aria-label="Κατηγορίες">
+{%- for c in categories | values %}
+      <a href="/{{ c.slug }}">{{ c.name }}</a>
+{%- endfor %}
+    </nav>
+    <p>© 2026 Παραμυθούπολη — Μια μη κερδοσκοπική πρωτοβουλία Φιλόμυθων. All Rights Reserved. · <a href="/terms">Όροι Χρήσης &amp; Πνευματική Ιδιοκτησία</a> · <a href="/afigites">Γίνε αφηγητής</a></p>
+    <p>paramythoupoli.gr</p>
+  </div>
+</footer>

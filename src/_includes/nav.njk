@@ -1,0 +1,39 @@
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <img src="{{ imgPrefix }}assets/img/kentavros-toxotis-nav.webp" alt="Παραμυθούπολη λογότυπο - Κένταυρος τοξότης" width="106" height="106">
+      Παραμυθούπολη
+    </a>
+
+    <div class="nav-links">
+      <a href="/#about">Ποιοι Είμαστε</a>
+      <div class="nav-drop">
+        <a href="/#stories" class="nav-drop-toggle">Μύθοι &amp; Παραμύθια <span class="nav-caret">▾</span></a>
+        <div class="nav-drop-menu">
+          <div class="nav-drop-menu-inner">
+{%- for c in categories | values %}
+            <a href="/{{ c.slug }}">{{ c.name }}</a>
+{%- endfor %}
+          </div>
+        </div>
+      </div>
+      <a href="/#community">Συμμετοχή «Συμπολιτών» και Φίλων</a>
+      <a href="/#contact">Επικοινωνία</a>
+    </div>
+
+    <!-- Μενού κινητού. Χωρίς JavaScript: δεν μπορεί να σπάσει. -->
+    <details class="nav-mobile">
+      <summary class="nav-burger" aria-label="Μενού" title="Μενού"><span class="nav-burger-box"><span></span><span></span><span></span></span></summary>
+      <div class="nav-mobile-menu">
+        <a href="/#about">Ποιοι Είμαστε</a>
+        <a href="/#stories">Όλα τα παραμύθια</a>
+        <span class="nav-mobile-label">Κατηγορίες</span>
+{%- for c in categories | values %}
+        <a href="/{{ c.slug }}">{{ c.name }}</a>
+{%- endfor %}
+        <a href="/#community">Συμμετοχή «Συμπολιτών» και Φίλων</a>
+        <a href="/#contact">Επικοινωνία</a>
+      </div>
+    </details>
+  </div>
+</nav>

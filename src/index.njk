@@ -308,32 +308,8 @@ eleventyExcludeFromCollections: true
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="index" class="nav-logo">
-      <img src="assets/img/kentavros-toxotis-nav.webp" alt="Παραμυθούπολη λογότυπο - Κένταυρος τοξότης" width="106" height="106">
-      Παραμυθούπολη
-    </a>
-    <div class="nav-links">
-      <a href="#about">Ποιοι Είμαστε</a>
-      <div class="nav-drop">
-        <a href="#stories" class="nav-drop-toggle">Μύθοι &amp; Παραμύθια <span class="nav-caret">▾</span></a>
-        <div class="nav-drop-menu">
-          <div class="nav-drop-menu-inner">
-            <a href="archaioi-ellinikoi-mythoi">Αρχαίοι Ελληνικοί Μύθοι</a>
-            <a href="irakleioi-mythoi">Ηράκλειοι Μύθοι</a>
-            <a href="mythoi-aisopou">Μύθοι Αισώπου</a>
-            <a href="paradosiaka-ellinika-paramythia">Παραδοσιακά Ελληνικά Παραμύθια</a>
-            <a href="pagkosmia-paramythotrapeza">Παγκόσμια Παραμυθοτράπεζα</a>
-            <a href="symmetochi-sympoliton">Συμμετοχή «Συμπολιτών» και Φίλων</a>
-          </div>
-        </div>
-      </div>
-      <a href="#community">Συμμετοχή «Συμπολιτών» και Φίλων</a>
-      <a href="#contact">Επικοινωνία</a>
-    </div>
-  </div>
-</nav>
+{%- set imgPrefix = "" %}
+{% include "nav.njk" %}
 
 <main>
 <section class="hero">
@@ -511,12 +487,7 @@ eleventyExcludeFromCollections: true
 
 </main>
 
-<footer>
-  <div class="footer-inner">
-    <p>© 2026 Παραμυθούπολη — Μια μη κερδοσκοπική πρωτοβουλία Φιλόμυθων. All Rights Reserved. · <a href="terms">Όροι Χρήσης &amp; Πνευματική Ιδιοκτησία</a> · <a href="afigites">Γίνε αφηγητής</a></p>
-    <p>paramythoupoli.gr</p>
-  </div>
-</footer>
+{% include "footer.njk" %}
 
 <!-- Προσκλήσεις CMS: στέλνει το token στο /admin, όπου το περιμένει το widget -->
 <script>

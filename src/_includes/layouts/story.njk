@@ -108,15 +108,8 @@ permalink: "/stories/{{ page.fileSlug }}.html"
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="../" class="nav-logo">
-      <img src="../assets/img/kentavros-toxotis-nav.webp" alt="Παραμυθούπολη λογότυπο - Κένταυρος τοξότης" width="106" height="106">
-      Παραμυθούπολη
-    </a>
-    <a href="../#stories" class="back-link">← Όλα τα παραμύθια</a>
-  </div>
-</nav>
+{%- set imgPrefix = "../" %}
+{% include "nav.njk" %}
 
 <header class="story-header">
   <div class="wrap-narrow">
@@ -229,12 +222,7 @@ permalink: "/stories/{{ page.fileSlug }}.html"
 
 </main>
 
-<footer>
-  <div class="footer-inner">
-    <p>© 2026 Παραμυθούπολη — Μια μη κερδοσκοπική πρωτοβουλία Φιλόμυθων. All Rights Reserved. · <a href="../terms">Όροι Χρήσης &amp; Πνευματική Ιδιοκτησία</a> · <a href="../afigites">Γίνε αφηγητής</a></p>
-    <p>paramythoupoli.gr</p>
-  </div>
-</footer>
+{% include "footer.njk" %}
 
 <script data-goatcounter="https://paramythoupoligr.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

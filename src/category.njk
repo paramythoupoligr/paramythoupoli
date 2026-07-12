@@ -98,29 +98,8 @@ eleventyExcludeFromCollections: true
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img src="assets/img/kentavros-toxotis-nav.webp" alt="Παραμυθούπολη λογότυπο - Κένταυρος τοξότης" width="106" height="106">
-      Παραμυθούπολη
-    </a>
-    <div class="nav-links">
-      <a href="/#about">Ποιοι Είμαστε</a>
-      <div class="nav-drop">
-        <a href="/#stories" class="nav-drop-toggle">Μύθοι &amp; Παραμύθια <span class="nav-caret">▾</span></a>
-        <div class="nav-drop-menu">
-          <div class="nav-drop-menu-inner">
-{%- for c in categories | values %}
-            <a href="/{{ c.slug }}">{{ c.name }}</a>
-{%- endfor %}
-          </div>
-        </div>
-      </div>
-      <a href="/#community">Συμμετοχή «Συμπολιτών» και Φίλων</a>
-      <a href="/#contact">Επικοινωνία</a>
-    </div>
-  </div>
-</nav>
+{%- set imgPrefix = "" %}
+{% include "nav.njk" %}
 
 <main>
 <section class="stories">
@@ -169,12 +148,7 @@ eleventyExcludeFromCollections: true
 </section>
 </main>
 
-<footer>
-  <div class="footer-inner">
-    <p>© 2026 Παραμυθούπολη — Μια μη κερδοσκοπική πρωτοβουλία Φιλόμυθων. All Rights Reserved. · <a href="terms">Όροι Χρήσης &amp; Πνευματική Ιδιοκτησία</a> · <a href="afigites">Γίνε αφηγητής</a></p>
-    <p>paramythoupoli.gr</p>
-  </div>
-</footer>
+{% include "footer.njk" %}
 
 <script data-goatcounter="https://paramythoupoligr.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

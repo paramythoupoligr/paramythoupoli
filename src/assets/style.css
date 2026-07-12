@@ -623,3 +623,106 @@ figcaption{
 }
 a.cat-chip:hover{ border-color: var(--ember); background: rgba(227,162,72,0.08); }
 .cat-chip-soon{ color: var(--slate); }
+
+
+/* ─────────── ΜΕΝΟΥ ΚΙΝΗΤΟΥ ───────────
+   Χωρίς JavaScript (<details>): δεν μπορεί να σπάσει.
+   Στο desktop είναι κρυφό — εκεί δουλεύει το .nav-links. */
+.nav-mobile{ display: none; }
+.nav-mobile > summary{ list-style: none; }
+.nav-mobile > summary::-webkit-details-marker{ display: none; }
+.nav-mobile > summary::marker{ content: ""; }
+
+/* Το <summary> ΠΡΕΠΕΙ να μένει display:block —
+   το iOS Safari σπάει το <details> αν το summary γίνει flex. */
+.nav-burger{
+  display: block;
+  width: 34px;
+  height: 34px;
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.nav-burger-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  height: 100%;
+}
+.nav-burger span{
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: rgba(244,236,220,0.85);
+  border-radius: 2px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.nav-burger:hover span{ background: var(--ember-bright); }
+.nav-mobile[open] .nav-burger-box span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.nav-mobile[open] .nav-burger-box span:nth-child(2){ opacity: 0; }
+.nav-mobile[open] .nav-burger-box span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+.nav-mobile-menu{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--night);
+  border-top: 1px solid rgba(244,236,220,0.12);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+  padding: 10px 0 14px;
+  display: flex;
+  flex-direction: column;
+  z-index: 60;
+}
+.nav-mobile-menu a{
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: rgba(244,236,220,0.85);
+  text-decoration: none;
+  padding: 12px 28px;
+}
+.nav-mobile-menu a:active,
+.nav-mobile-menu a:hover{ color: var(--ember-bright); background: rgba(244,236,220,0.05); }
+.nav-mobile-label{
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  padding: 14px 28px 6px;
+}
+
+@media (max-width: 600px){
+  .nav{ position: relative; }
+  .nav-inner{ position: relative; }
+  .nav-mobile{ display: block; }
+  .back-link{ display: none; }
+}
+
+
+/* ─────────── ΚΑΤΗΓΟΡΙΕΣ ΣΤΟ FOOTER ───────────
+   Δεύτερος δρόμος προς τις κατηγορίες, από κάθε σελίδα.
+   Αν το μενού κινητού αποτύχει σε κάποιο browser, αυτό κρατάει. */
+.footer-cats{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  margin: 0 0 22px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid rgba(244,236,220,0.10);
+}
+.footer-cats a{
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: rgba(244,236,220,0.62);
+  text-decoration: none;
+}
+.footer-cats a:hover{ color: var(--ember-bright); }
+@media (max-width: 600px){
+  .footer-cats{ flex-direction: column; align-items: center; gap: 12px; }
+  .footer-cats a{ font-size: 14px; }
+}
