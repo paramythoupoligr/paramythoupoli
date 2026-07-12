@@ -1,5 +1,6 @@
 ---
 title: "Ο Μίδας και τα Αστεία Αυτιά"
+slug: midas
 titleHtml: "Ο Μίδας και<br>τα Αστεία Αυτιά"
 number: 2
 category: archaioi

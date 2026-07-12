@@ -1,5 +1,6 @@
 ---
 title: "Το Γαλάζιο Τσακάλι"
+slug: galazio-tsakali
 titleHtml: "Το Γαλάζιο<br>Τσακάλι"
 number: 13
 category: pagkosmia

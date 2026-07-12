@@ -1,5 +1,6 @@
 ---
 title: "Ο Σαλίγκαρος και ο Αετός"
+slug: saligkaros-aetos
 titleHtml: "Ο Σαλίγκαρος<br>και ο Αετός"
 number: 10
 category: paradosiaka

@@ -1,5 +1,6 @@
 ---
 title: "Το Δυνατότερο Ζώο του Δάσους"
+slug: dynatotero-zoo
 titleHtml: "Το Δυνατότερο<br>Ζώο του Δάσους"
 number: 9
 category: paradosiaka

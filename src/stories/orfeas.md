@@ -1,5 +1,6 @@
 ---
 title: "Ο Ορφέας και η Μαγική Λύρα"
+slug: orfeas
 titleHtml: "Ο Ορφέας και<br>η Μαγική Λύρα"
 number: 5
 category: archaioi

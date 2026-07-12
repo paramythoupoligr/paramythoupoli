@@ -1,5 +1,6 @@
 ---
 title: "Ο Ζαλ και το Σιμούργκ"
+slug: zal-simourgk
 titleHtml: "Ο Ζαλ<br>και το Σιμούργκ"
 number: 12
 category: pagkosmia

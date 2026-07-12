@@ -1,5 +1,6 @@
 ---
 title: "Η Μαμά Κυρά Ποντικίνα"
+slug: mama-pontikina
 titleHtml: "Η Μαμά<br>Κυρά Ποντικίνα"
 number: 4
 category: paradosiaka

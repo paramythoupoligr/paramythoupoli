@@ -1,5 +1,6 @@
 ---
 title: "Ο Άτυχος Ψαράς και το Αχόρταγο Μάτι"
+slug: atyhos-psaras
 titleHtml: "Ο Άτυχος Ψαράς<br>και το Αχόρταγο Μάτι"
 number: 3
 category: paradosiaka

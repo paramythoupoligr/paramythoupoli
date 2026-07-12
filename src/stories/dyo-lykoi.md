@@ -1,5 +1,6 @@
 ---
 title: "Οι Δύο Λύκοι"
+slug: dyo-lykoi
 titleHtml: "Οι Δύο<br>Λύκοι"
 number: 22
 category: pagkosmia

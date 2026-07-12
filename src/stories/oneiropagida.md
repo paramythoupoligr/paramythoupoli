@@ -1,5 +1,6 @@
 ---
 title: "Ο Μύθος της Ονειροπαγίδας"
+slug: oneiropagida
 titleHtml: "Ο Μύθος<br>της Ονειροπαγίδας"
 number: 11
 category: pagkosmia

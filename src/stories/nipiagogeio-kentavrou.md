@@ -1,5 +1,6 @@
 ---
 title: "Το Νηπιαγωγείο του Κενταύρου"
+slug: nipiagogeio-kentavrou
 titleHtml: "Το Νηπιαγωγείο<br>του Κενταύρου"
 number: 15
 category: symmetochi

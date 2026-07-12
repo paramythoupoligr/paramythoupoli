@@ -1,5 +1,6 @@
 ---
 title: "Ο Ηρακλής και ο Κύκνος"
+slug: iraklis-kyknos
 titleHtml: "Ο Ηρακλής<br>και ο Κύκνος"
 number: 18
 category: irakleioi

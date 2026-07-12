@@ -1,5 +1,6 @@
 ---
 title: "Το Κουνούπι και το Λιοντάρι"
+slug: kounoupi-liontari
 titleHtml: "Το Κουνούπι<br>και το Λιοντάρι"
 number: 1
 category: aisopou

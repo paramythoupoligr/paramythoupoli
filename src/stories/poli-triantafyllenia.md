@@ -1,5 +1,6 @@
 ---
 title: "Η Πόλη που Έγινε Τριανταφυλλένια"
+slug: poli-triantafyllenia
 titleHtml: "Η Πόλη που Έγινε<br>Τριανταφυλλένια"
 number: 21
 category: symmetochi

@@ -23,6 +23,9 @@ collections:
       - { name: title, label: "Τίτλος", widget: string,
           hint: "Όπως θα εμφανίζεται στη σελίδα. Π.χ. «Οι Δύο Λύκοι»" }
 
+      - { name: titleHtml, label: "Τίτλος με αλλαγή γραμμής", widget: string, required: false,
+          hint: "Πώς σπάει ο τίτλος σε δύο σειρές στη σελίδα. Π.χ. «Οι Δύο<br>Λύκοι». Άφησέ το κενό για μία σειρά." }
+
       - { name: slug, label: "Διεύθυνση (URL)", widget: string,
           pattern: ['^[a-z0-9\-]+$', "Μόνο μικρά λατινικά, αριθμοί και παύλες"],
           hint: "Λατινικά, χωρίς κενά. Π.χ. dyo-lykoi → paramythoupoli.gr/stories/dyo-lykoi" }
@@ -57,10 +60,11 @@ collections:
           hint: "«##» για κεφαλαία ενοτήτων. Η οριζόντια γραμμή (—) γίνεται λουλούδι-διαχωριστής. Το αρχικό γράμμα μπαίνει αυτόματα." }
 
       - { name: moralLabel, label: "Τίτλος πλαισίου διδάγματος", widget: string, required: false, default: "Το δίδαγμα" }
-      - { name: moral, label: "Το δίδαγμα (προαιρετικό)", widget: text, required: false,
+      - { name: moral, label: "Το δίδαγμα", widget: text, required: false,
           hint: "Οι νεότερες ιστορίες δεν το χρησιμοποιούν — το ήθος βγαίνει από τη δράση των χαρακτήρων." }
 
-      - { name: discussion, label: "Για συζήτηση", widget: list, required: false, collapsed: true,
+      - { name: discussion, label: "Ερωτήσεις για συζήτηση", widget: list, required: false, collapsed: true,
+          label_singular: "Ερώτηση",
           field: { name: q, label: "Ερώτηση", widget: text },
           hint: "Προαιρετικό — μόνο όταν υπάρχει πραγματική ανοιχτή ηθική ένταση." }
 
@@ -78,8 +82,18 @@ collections:
       - { name: seoDescription, label: "Περιγραφή στο Google", widget: text,
           pattern: ['^.{1,158}$', "Έως 158 χαρακτήρες — αλλιώς κόβεται"] }
       - { name: keywords, label: "Λέξεις-κλειδιά", widget: string }
+      - { name: headline, label: "Τίτλος στο schema", widget: string, required: false,
+          hint: "Μόνο αν πρέπει να διαφέρει από τον τίτλο της σελίδας. Συνήθως κενό." }
+      - { name: ogDescription, label: "Περιγραφή για Facebook (og)", widget: text, required: false,
+          hint: "Μόνο αν πρέπει να διαφέρει. Αλλιώς χρησιμοποιείται η περιγραφή του Google." }
+      - { name: twitterDescription, label: "Περιγραφή για X/Twitter", widget: text, required: false,
+          hint: "Μόνο αν πρέπει να διαφέρει." }
+      - { name: schemaDescription, label: "Περιγραφή στο schema", widget: text, required: false,
+          hint: "Μόνο αν πρέπει να διαφέρει." }
       - { name: cardExcerpt, label: "Περίληψη για την κάρτα", widget: text,
           hint: "Εμφανίζεται στην αρχική και στη σελίδα κατηγορίας." }
+      - { name: cardExcerptCategory, label: "Περίληψη κάρτας — σελίδα κατηγορίας", widget: text, required: false,
+          hint: "Μόνο αν πρέπει να διαφέρει από την περίληψη της αρχικής. Συνήθως κενό." }
       - { name: cardAlt, label: "Περιγραφή εικόνας στην κάρτα (alt)", widget: string }
       - { name: llmsSummary, label: "Περίληψη για μηχανές (llms.txt)", widget: text }
 
@@ -87,6 +101,7 @@ collections:
       - { name: date, label: "Ημερομηνία δημοσίευσης", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
       - { name: updated, label: "Τελευταία ενημέρωση", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
 
-      - { name: related, label: "Διάβασε επίσης (χειροκίνητα)", widget: list, required: false, collapsed: true,
+      - { name: related, label: "Διάβασε επίσης", widget: list, required: false, collapsed: true,
+          label_singular: "Ιστορία",
           field: { name: slug, label: "Διεύθυνση ιστορίας", widget: string },
           hint: "Άφησέ το κενό — οι συνδέσεις υπολογίζονται αυτόματα, χωρίς να μείνει καμία ιστορία ορφανή." }

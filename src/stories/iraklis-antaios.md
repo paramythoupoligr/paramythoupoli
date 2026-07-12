@@ -1,5 +1,6 @@
 ---
 title: "Ο Ηρακλής και ο Ανταίος"
+slug: iraklis-antaios
 titleHtml: "Ο Ηρακλής<br>και ο Ανταίος"
 number: 17
 category: irakleioi

@@ -1,5 +1,6 @@
 ---
 title: "Ο Σκλάβος και η Χρυσή Λύρα"
+slug: sklavos-lyra
 titleHtml: "Ο Σκλάβος και<br>η Χρυσή Λύρα"
 number: 8
 category: paradosiaka

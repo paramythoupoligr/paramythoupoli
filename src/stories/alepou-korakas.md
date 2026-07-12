@@ -1,5 +1,6 @@
 ---
 title: "Η Αλεπού και ο Κόρακας"
+slug: alepou-korakas
 titleHtml: "Η Αλεπού<br>και ο Κόρακας"
 number: 7
 category: aisopou

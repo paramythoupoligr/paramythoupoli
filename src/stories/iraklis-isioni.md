@@ -1,5 +1,6 @@
 ---
 title: "Ο Ηρακλής και η Ησιόνη"
+slug: iraklis-isioni
 titleHtml: "Ο Ηρακλής<br>και η Ησιόνη"
 number: 19
 category: irakleioi

@@ -1,5 +1,6 @@
 ---
 title: "Ο Ήλιος και ο Φαέθων"
+slug: ilios-faethon
 titleHtml: "Ο Ήλιος<br>και ο Φαέθων"
 number: 6
 category: archaioi

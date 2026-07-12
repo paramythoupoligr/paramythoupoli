@@ -1,5 +1,6 @@
 ---
 title: "Ο Ηρακλής στο Σταυροδρόμι"
+slug: iraklis-stavrodromi
 titleHtml: "Ο Ηρακλής<br>στο Σταυροδρόμι"
 number: 16
 category: irakleioi

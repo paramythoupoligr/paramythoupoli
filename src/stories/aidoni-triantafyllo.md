@@ -1,5 +1,6 @@
 ---
 title: "Το Αηδόνι και το Τριαντάφυλλο"
+slug: aidoni-triantafyllo
 titleHtml: "Το Αηδόνι και<br>το Τριαντάφυλλο"
 number: 14
 category: pagkosmia
