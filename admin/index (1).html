@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Παραμυθούπολη — Διαχείριση</title>
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Μην ξεκινήσεις μόνο σου: πρώτα βάζουμε τα ελληνικά, μετά ξεκινάμε εμείς. -->
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://unpkg.com/decap-cms@^3.3.3/dist/decap-cms.js"></script>
+
+  <script>
+    // ── Ελληνικά για τη διεπαφή του CMS ──
+    window.CMS.registerLocale("el", {
+      app: {
+        header: {
+          content: "Περιεχόμενο",
+          media: "Εικόνες",
+          quickAdd: "Γρήγορη προσθήκη",
+        },
+        app: {
+          errorHeader: "Σφάλμα κατά τη φόρτωση των ρυθμίσεων",
+          configErrors: "Σφάλματα ρύθμισης",
+          checkConfigYml: "Έλεγξε το αρχείο config.yml.",
+          loadingConfig: "Φόρτωση ρυθμίσεων…",
+          waitingBackend: "Αναμονή…",
+        },
+        notFoundPage: { header: "Δεν βρέθηκε" },
+      },
+      collection: {
+        sidebar: {
+          collections: "Συλλογές",
+          allCollections: "Όλα",
+          searchAll: "Αναζήτηση",
+          searchIn: "Αναζήτηση σε",
+        },
+        collectionTop: {
+          sortBy: "Ταξινόμηση",
+          viewAs: "Προβολή",
+          newButton: "Νέα %{collectionLabel}",
+          ascending: "Αύξουσα",
+          descending: "Φθίνουσα",
+          searchResults: 'Αποτελέσματα για "%{searchTerm}"',
+          searchResultsInCollection: 'Αποτελέσματα για "%{searchTerm}" στο %{collection}',
+          filterBy: "Φίλτρο",
+          groupBy: "Ομαδοποίηση",
+        },
+        entries: { loadingEntries: "Φόρτωση…", cachingEntries: "Αποθήκευση…", longerLoading: "Λίγα δευτερόλεπτα ακόμη…" },
+        defaultFields: { body: { label: "Κείμενο" } },
+      },
+      editor: {
+        editorControl: {
+          field: { optional: "προαιρετικό" },
+        },
+        editorControlPane: {
+          widget: {
+            required: "Το πεδίο «%{fieldLabel}» είναι υποχρεωτικό.",
+            regexPattern: "Το πεδίο «%{fieldLabel}» δεν ταιριάζει με το ζητούμενο: %{pattern}.",
+            processing: "Το «%{fieldLabel}» επεξεργάζεται.",
+            range: "Το «%{fieldLabel}» πρέπει να είναι μεταξύ %{minValue} και %{maxValue}.",
+            min: "Το «%{fieldLabel}» πρέπει να είναι τουλάχιστον %{minValue}.",
+            max: "Το «%{fieldLabel}» πρέπει να είναι έως %{maxValue}.",
+            rangeCount: "Το «%{fieldLabel}» πρέπει να έχει %{minCount} έως %{maxCount} στοιχεία.",
+          },
+        },
+        editor: {
+          onLeavePage: "Θέλεις σίγουρα να φύγεις; Υπάρχουν αλλαγές που δεν αποθηκεύτηκαν.",
+          onDeleteWithUnsavedChangesTitle: "Διαγραφή;",
+          onDeleteWithUnsavedChangesBody: "Θέλεις σίγουρα να διαγράψεις; Θα χαθούν και οι αλλαγές που δεν αποθηκεύτηκαν.",
+          loadingEntry: "Φόρτωση…",
+        },
+        editorToolbar: {
+          publish: "Δημοσίευση",
+          published: "Δημοσιευμένο",
+          publishNow: "Δημοσίευση τώρα",
+          publishAndCreateNew: "Δημοσίευση και νέα ιστορία",
+          publishAndDuplicate: "Δημοσίευση και αντίγραφο",
+          duplicate: "Αντίγραφο",
+          deleteEntry: "Διαγραφή",
+          saving: "Αποθήκευση…",
+          save: "Αποθήκευση",
+          discardChanges: "Απόρριψη αλλαγών",
+          backCollection: "Επιστροφή στη συλλογή %{collectionLabel}",
+          unsavedChanges: "Μη αποθηκευμένες αλλαγές",
+          changesSaved: "Οι αλλαγές αποθηκεύτηκαν",
+          deploying: "Ανεβαίνει…",
+          deployPreviewPendingButtonLabel: "Έλεγχος προεπισκόπησης",
+          deployPreviewButtonLabel: "Προεπισκόπηση",
+        },
+        editorWidgets: {
+          markdown: { richText: "Πλούσιο κείμενο", markdown: "Markdown" },
+          image: {
+            choose: "Διάλεξε εικόνα",
+            chooseDifferent: "Άλλαξε εικόνα",
+            chooseMultiple: "Διάλεξε εικόνες",
+            remove: "Αφαίρεση εικόνας",
+            replaceUrl: "Αντικατάσταση με διεύθυνση",
+            addMore: "Πρόσθεσε κι άλλες",
+          },
+          list: { add: "Προσθήκη %{item}", addType: "Προσθήκη %{item}" },
+          datetime: { now: "Τώρα", clear: "Καθαρισμός", invalidDateTitle: "Μη έγκυρη ημερομηνία" },
+          unknownControl: { noControl: "Δεν υπάρχει χειριστήριο για το πεδίο «%{widget}»." },
+        },
+      },
+      mediaLibrary: {
+        mediaLibraryCard: { draft: "Πρόχειρο" },
+        mediaLibrary: {
+          onDeleteTitle: "Διαγραφή εικόνας;",
+          onDeleteBody: "Θέλεις σίγουρα να διαγράψεις την επιλεγμένη εικόνα;",
+        },
+        mediaLibraryModal: {
+          loading: "Φόρτωση…",
+          noResults: "Δεν βρέθηκε τίποτα.",
+          noAssetsFound: "Δεν βρέθηκαν εικόνες.",
+          images: "Εικόνες",
+          mediaAssets: "Αρχεία",
+          search: "Αναζήτηση…",
+          uploading: "Ανεβαίνει…",
+          upload: "Ανέβασμα",
+          download: "Λήψη",
+          deleting: "Διαγραφή…",
+          deleteSelected: "Διαγραφή επιλεγμένου",
+          chooseSelected: "Επιλογή",
+        },
+      },
+      ui: {
+        default: { goBackToSite: "Επιστροφή στο site" },
+        errorBoundary: { title: "Σφάλμα" },
+        settingsDropdown: { logOut: "Αποσύνδεση" },
+        toast: {
+          onFailToLoadEntries: "Αποτυχία φόρτωσης: %{details}",
+          onFailToPersist: "Αποτυχία αποθήκευσης: %{details}",
+          onFailToDelete: "Αποτυχία διαγραφής: %{details}",
+          entrySaved: "Αποθηκεύτηκε",
+          entryPublished: "Δημοσιεύτηκε",
+          entryDeleted: "Διαγράφηκε",
+          missingRequiredField: "Λείπει κάτι υποχρεωτικό. Συμπλήρωσέ το πριν δημοσιεύσεις.",
+          entryUpdated: "Ενημερώθηκε",
+        },
+      },
+    });
+
+    window.CMS.init();
+  </script>
+</body>
+</html>
