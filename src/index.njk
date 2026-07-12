@@ -518,6 +518,17 @@ eleventyExcludeFromCollections: true
   </div>
 </footer>
 
+<!-- Προσκλήσεις CMS: στέλνει το token στο /admin, όπου το περιμένει το widget -->
+<script>
+  (function () {
+    var h = window.location.hash;
+    if (h && (h.indexOf('invite_token=') > -1 || h.indexOf('recovery_token=') > -1 ||
+              h.indexOf('confirmation_token=') > -1 || h.indexOf('email_change_token=') > -1)) {
+      window.location.replace('/admin/' + h);
+    }
+  })();
+</script>
+
 <script data-goatcounter="https://paramythoupoligr.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 

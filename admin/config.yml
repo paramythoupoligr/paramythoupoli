@@ -56,10 +56,17 @@ collections:
       - { name: tagline, label: "Εισαγωγική φράση", widget: text,
           hint: "Η μία φράση κάτω από τον τίτλο, που τραβάει τον αναγνώστη μέσα." }
 
-      - { name: body, label: "Το κείμενο", widget: markdown,
-          hint: "«##» για κεφαλαία ενοτήτων. Η οριζόντια γραμμή (—) γίνεται λουλούδι-διαχωριστής. Το αρχικό γράμμα μπαίνει αυτόματα." }
+      - name: body
+        label: "Το κείμενο"
+        widget: markdown
+        modes: [raw]
+        sanitize_preview: false
+        hint: >-
+          «## Τίτλος» για κεφαλίδα ενότητας · «---» σε δική του γραμμή για λουλούδι-διαχωριστή ·
+          ![περιγραφή](/assets/img/x.jpg "λεζάντα") για εικόνα μέσα στο κείμενο.
+          Το αρχικό μεγάλο γράμμα μπαίνει αυτόματα στην πρώτη παράγραφο.
 
-      - { name: moralLabel, label: "Τίτλος πλαισίου διδάγματος", widget: string, required: false, default: "Το δίδαγμα" }
+      - { name: moralLabel, label: "Τίτλος πλαισίου διδάγματος", widget: string, required: false }
       - { name: moral, label: "Το δίδαγμα", widget: text, required: false,
           hint: "Οι νεότερες ιστορίες δεν το χρησιμοποιούν — το ήθος βγαίνει από τη δράση των χαρακτήρων." }
 
@@ -97,7 +104,7 @@ collections:
       - { name: cardAlt, label: "Περιγραφή εικόνας στην κάρτα (alt)", widget: string }
       - { name: llmsSummary, label: "Περίληψη για μηχανές (llms.txt)", widget: text }
 
-      - { name: readingTime, label: "Χρόνος ανάγνωσης (λεπτά)", widget: number, value_type: int, min: 1 }
+      - { name: readingTime, label: "Χρόνος ανάγνωσης (λεπτά)", widget: number, value_type: int, min: 1, default: 4 }
       - { name: date, label: "Ημερομηνία δημοσίευσης", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
       - { name: updated, label: "Τελευταία ενημέρωση", widget: datetime, date_format: "YYYY-MM-DD", time_format: false, picker_utc: true }
 
