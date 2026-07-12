@@ -122,7 +122,7 @@ permalink: "/stories/{{ page.fileSlug }}.html"
   <div class="wrap-narrow">
     <nav class="crumbs" aria-label="breadcrumb"><a href="../">Αρχική</a><span class="sep">›</span><a href="../{{ cat.slug }}">{{ cat.name }}</a><span class="sep">›</span><span class="here">{{ title | esc | safe }}</span></nav>
     <span class="eyebrow">{{ cat.name }} Νο. {{ number | pad2 }} · Διάρκεια ανάγνωσης ≈ {{ readingTime }} λεπτά</span>
-    <h1>{{ (titleHtml or title) | safe }}</h1>
+    <h1>{{ (titleHtml or (title | autoBreak)) | safe }}</h1>
 {%- if origin %}
     <p class="story-origin">{{ origin | esc | safe }}</p>
 {%- endif %}

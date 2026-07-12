@@ -75,49 +75,62 @@ export default function (eleventyConfig) {
     return out;
   });
 
-  // ---------- related: ρητά ή αυτόματα, χωρίς ορφανές ----------
+  // ---------- «Διάβασε επίσης» ----------
+  //
+  //   Κάρτα 1  →  ιστορία της ΙΔΙΑΣ κατηγορίας   (θεματική συνέχεια)
+  //   Κάρτα 2  →  η ΑΜΕΣΩΣ ΠΡΟΗΓΟΥΜΕΝΗ ιστορία   (Νο. N-1)
+  //
+  // Η κάρτα 2 φτιάχνει νήμα μέσα στη συλλογή: κάθε ιστορία δείχνει στην προηγούμενη,
+  // άρα κάθε ιστορία αποκτά εισερχόμενη σύνδεση από τη διάδοχό της — αυτόματα,
+  // χωρίς να ξαναγραφτεί ποτέ καμία σελίδα. Στο 90% οδηγεί σε ΑΛΛΗ κατηγορία.
+  // Μόνο η νεότερη μένει προσωρινά χωρίς — μέχρι να γράψεις την επόμενη.
+  //
+  // Και οι δύο κάρτες κοιτούν ΜΟΝΟ ιστορίες που υπήρχαν ήδη (μικρότερο αριθμό):
+  // έτσι το «Διάβασε επίσης» μιας ιστορίας ΔΕΝ αλλάζει ποτέ.
+  //
+  // Αν συμπληρώσεις το πεδίο «Διάβασε επίσης», η επιλογή σου υπερισχύει απόλυτα.
+  // Καμία υπάρχουσα σελίδα δεν ξαναγράφεται ποτέ αυτόματα.
   eleventyConfig.addCollection("related", (api) => {
     const all = api
       .getFilteredByGlob("src/stories/*.md")
       .sort((a, b) => a.data.number - b.data.number);
     const bySlug = Object.fromEntries(all.map((s) => [slugOf(s), s]));
-    const byCat = {};
-    all.forEach((s) => (byCat[s.data.category] ||= []).push(s));
 
     const map = {};
     for (const s of all) {
       const me = slugOf(s);
-      if (Array.isArray(s.data.related) && s.data.related.length) {
-        map[me] = s.data.related.filter((r) => bySlug[r] && r !== me).slice(0, 2);
-        continue;
+      const chosen = (s.data.related || []).filter((r) => bySlug[r] && r !== me);
+      if (chosen.length >= 2) { map[me] = chosen.slice(0, 2); continue; }
+
+      const n = s.data.number;
+      const cat = s.data.category;
+      const past = all.filter((x) => x.data.number < n && slugOf(x) !== me);
+      const same = past.filter((x) => x.data.category === cat).map(slugOf);
+      const other = past.filter((x) => x.data.category !== cat).map(slugOf);
+
+      const picks = [...chosen];
+      const add = (c) => { if (c && !picks.includes(c)) picks.push(c); };
+
+      if (same.length) add(same[n % same.length]);            // κάρτα 1: ίδια κατηγορία
+      if (past.length) add(slugOf(past[past.length - 1]));    // κάρτα 2: η προηγούμενη ιστορία
+      // εφεδρείες: πρώτη της κατηγορίας ή πρώτη του site
+      let k = 0;
+      while (picks.length < 2 && other.length) add(other[(n * 7 + k++) % other.length]);
+      for (let j = 0; picks.length < 2 && j < all.length; j++) {
+        const c = slugOf(all[j]);
+        if (c !== me) add(c);
       }
-      // αυτόματο: κυκλικά μέσα στην κατηγορία (εγγυάται εισερχόμενες συνδέσεις)
-      const cat = byCat[s.data.category];
-      const i = cat.indexOf(s);
-      const picks = [];
-      for (let k = 1; k <= cat.length && picks.length < 2; k++) {
-        const c = slugOf(cat[(i + k) % cat.length]);
-        if (c !== me && !picks.includes(c)) picks.push(c);
-      }
-      // αν η κατηγορία είναι πολύ μικρή, συμπλήρωση από το σύνολο
-      const gi = all.indexOf(s);
-      for (let k = 1; k <= all.length && picks.length < 2; k++) {
-        const c = slugOf(all[(gi + k) % all.length]);
-        if (c !== me && !picks.includes(c)) picks.push(c);
-      }
-      map[me] = picks;
+      map[me] = picks.slice(0, 2);
     }
 
-    // ---- ΕΛΕΓΧΟΣ: καμία ορφανή ----
-    const inbound = Object.fromEntries(all.map((s) => [slugOf(s), 0]));
-    Object.values(map).flat().forEach((r) => inbound[r]++);
-    const orphans = Object.entries(inbound)
-      .filter(([, n]) => n === 0)
-      .map(([s]) => s);
-    if (orphans.length) {
-      throw new Error(
-        `ΟΡΦΑΝΕΣ ΙΣΤΟΡΙΕΣ (καμία εισερχόμενη σύνδεση): ${orphans.join(", ")}\n` +
-          `Πρόσθεσέ τες στο «related» κάποιας άλλης ιστορίας, ή άφησε το πεδίο κενό για αυτόματη σύνδεση.`
+    // Ενημερωτικά μόνο — καμία αλλαγή, καμία αποτυχία.
+    const inb = Object.fromEntries(all.map((s) => [slugOf(s), 0]));
+    Object.values(map).flat().forEach((r) => inb[r]++);
+    const none = Object.entries(inb).filter(([, c]) => c === 0).map(([s]) => s);
+    if (none.length) {
+      console.log(
+        "[Παραμυθούπολη] Χωρίς «Διάβασε επίσης» προς αυτές (φυσιολογικό για τη νεότερη· " +
+        "βρίσκονται κανονικά από την αρχική και τη σελίδα της κατηγορίας τους): " + none.join(", ")
       );
     }
     return map;
@@ -125,6 +138,8 @@ export default function (eleventyConfig) {
 
   // ---------- φίλτρα ----------
   // Το CMS γράφει "/assets/img/x.jpg" — τα templates θέλουν "x.jpg"
+  // Αν λείπει ο «Τίτλος με αλλαγή γραμμής», τον προτείνει το build.
+  eleventyConfig.addFilter("autoBreak", autoBreak);
   eleventyConfig.addFilter("imgFile", imgFile);
   eleventyConfig.addFilter("slugOf", slugOf);
   eleventyConfig.addFilter("small", (f, e) => small(f, e));
@@ -155,6 +170,23 @@ export default function (eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
   };
+}
+
+const CONNECT = new Set(["και","κι","στο","στη","στην","στον","στα","στις","στους",
+  "του","της","των","με","από","που","για","ο","η","το","τα","οι","ένα","έναν","μια"]);
+
+function autoBreak(title) {
+  const w = String(title || "").split(/\s+/).filter(Boolean);
+  if (w.length < 3) return title;
+  let best = null, score = Infinity;
+  for (let i = 1; i < w.length; i++) {
+    const a = w.slice(0, i).join(" "), b = w.slice(i).join(" ");
+    let s = Math.abs(a.length - b.length);
+    if (CONNECT.has(w[i].toLowerCase())) s -= 6;
+    if (CONNECT.has(w[i - 1].toLowerCase())) s -= 3;
+    if (s < score) { score = s; best = [a, b]; }
+  }
+  return `${best[0]}<br>${best[1]}`;
 }
 
 function imgFile(f) {

@@ -27,6 +27,19 @@ os.makedirs(IMG, exist_ok=True)
 
 NIGHT, EMBER, CREAM, RUST = '#14202c', '#e3a248', '#f4ecdc', '#8a3e3e'
 FULL_W, SMALL_W = 1024, 600
+ASPECT = 3 / 2          # η αναλογία των εξωφύλλων
+MIN_W  = 1024           # κάτω από αυτό, η εικόνα είναι πολύ μικρή
+
+FOCUS = {}   # {όνομα εικόνας: 'πάνω' | 'κέντρο' | 'κάτω'}
+
+def load_focus():
+    import yaml as _y
+    for f in glob.glob(os.path.join(SRC, 'stories', '*.md')):
+        m = re.match(r'^---\n(.*?)\n---\n', open(f, encoding='utf-8').read(), re.S)
+        d = _y.safe_load(m.group(1)) or {}
+        img = re.sub(r'^.*/assets/img/', '', str(d.get('image', '')))
+        if img and d.get('imageFocus'):
+            FOCUS[os.path.splitext(img)[0]] = d['imageFocus']
 
 # ──────────────────────────── 1. ΕΙΚΟΝΕΣ ────────────────────────────
 
@@ -35,16 +48,41 @@ def is_variant(name):
     stem = os.path.splitext(name)[0]
     return stem.endswith('-small') or name.lower().endswith('.webp')
 
+
+def focus_of(name):
+    """Πού εστιάζει το κόψιμο; Ορίζεται στη φόρμα ανά ιστορία."""
+    return FOCUS.get(name, 'κέντρο')
+
+
+def crop_3x2(im, focus='κέντρο'):
+    """Κόβει την εικόνα σε 3:2. Επιστρέφει (εικόνα, ποσοστό που πετάχτηκε)."""
+    w, h = im.size
+    target = ASPECT
+    if abs(w / h - target) < 0.01:
+        return im, 0.0
+    if w / h > target:                      # πολύ φαρδιά → κόβουμε στα πλάγια
+        new_w = round(h * target)
+        left = (w - new_w) // 2             # οριζόντια: πάντα κέντρο
+        box = (left, 0, left + new_w, h)
+    else:                                   # πολύ ψηλή → κόβουμε πάνω/κάτω
+        new_h = round(w / target)
+        if focus == 'πάνω':   top = 0
+        elif focus == 'κάτω': top = h - new_h
+        else:                 top = (h - new_h) // 2
+        box = (0, top, w, top + new_h)
+    out = im.crop(box)
+    lost = 1 - (out.width * out.height) / (w * h)
+    return out, lost
+
+
 def build_images():
-    """Για κάθε πρωτότυπη εικόνα στο img/, φτιάχνει όσες από τις 4 εκδοχές λείπουν.
-    Το CMS ανεβάζει απευθείας εδώ — οι υπόλοιπες εκδοχές παράγονται αυτόματα."""
-    made = 0
+    """Κάθε νέα εικόνα → κόβεται σε 3:2 και παράγονται 4 εκδοχές.
+    Οι υπάρχουσες (που έχουν ήδη και τις 4) δεν πειράζονται."""
+    made, problems = 0, []
     sources = sorted(glob.glob(os.path.join(IMG, '*'))) + sorted(glob.glob(os.path.join(UP, '*')))
     for src in sources:
         name = os.path.basename(src)
-        if not name.lower().endswith(('.jpg', '.jpeg', '.png')):
-            continue
-        if is_variant(name):
+        if not name.lower().endswith(('.jpg', '.jpeg', '.png')) or is_variant(name):
             continue
         base = os.path.splitext(name)[0]
         targets = {
@@ -53,17 +91,44 @@ def build_images():
             f'{base}-small.jpg':  (SMALL_W, 'JPEG', 78),
             f'{base}-small.webp': (SMALL_W, 'WEBP', 75),
         }
-        missing = {k: v for k, v in targets.items() if not os.path.exists(os.path.join(IMG, k))}
-        if not missing:
-            continue
+        derived = [k for k in targets if k != f'{base}.jpg']
+        if all(os.path.exists(os.path.join(IMG, k)) for k in derived) \
+           and os.path.exists(os.path.join(IMG, f'{base}.jpg')):
+            continue                                    # υπάρχουσα εικόνα — δεν την αγγίζουμε
+        # Το CMS ανεβάζει το πρωτότυπο με το ίδιο όνομα με τον στόχο ({base}.jpg).
+        # Άρα το ξαναγράφουμε ΚΙ ΑΥΤΟ, αλλιώς μένει άκοπο.
+        missing = targets
+
         im = Image.open(src).convert('RGB')
+
+        # ── ΔΙΚΛΕΙΔΑ 1: πολύ μικρή εικόνα ──
+        if im.width < MIN_W:
+            problems.append(
+                f'Η εικόνα «{name}» είναι {im.width}px πλάτος. '
+                f'Χρειάζεται τουλάχιστον {MIN_W}px, αλλιώς το εξώφυλλο βγαίνει θολό.')
+            continue
+
+        im, lost = crop_3x2(im, focus_of(base))
+
+        # ── ΔΙΚΛΕΙΔΑ 2: το κόψιμο πετά πολλά ──
+        if lost > 0.40:
+            print(f'  ⚠  {base}: το κόψιμο σε 3:2 πετά {lost*100:.0f}% της εικόνας. '
+                  f'Έλεγξε αν χάθηκε το θέμα (πεδίο «Εστίαση εικόνας»).')
+
         for fname, (w, fmt, q) in missing.items():
             out = im if im.width <= w else im.resize((w, round(im.height * w / im.width)), Image.LANCZOS)
             kw = dict(quality=q, optimize=True, progressive=True) if fmt == 'JPEG' \
                  else dict(quality=q, method=6)
             out.save(os.path.join(IMG, fname), fmt, **kw)
             made += 1
-        print(f'  🖼  {base}: +{len(missing)} εκδοχές')
+        print(f'  🖼  {base}: {im.width}×{im.height} (3:2) → +{len(missing)} εκδοχές')
+
+    if problems:
+        print('\n' + '=' * 60)
+        for p in problems:
+            print('  ✗ ' + p)
+        print('=' * 60)
+        raise SystemExit(1)
     return made
 
 # ──────────────────────────── ΑΝΑΓΝΩΣΗ ΔΕΔΟΜΕΝΩΝ ────────────────────────────
@@ -78,6 +143,22 @@ def read_story(path):
         if d.get(k):
             d[k] = re.sub(r'^.*/assets/img/', '', str(d[k]))
     return d
+
+CONNECT = {'και','κι','στο','στη','στην','στον','στα','στις','στους','του','της','των',
+           'με','από','που','για','ο','η','το','τα','οι','ένα','έναν','μια'}
+
+def auto_break(title):
+    w = str(title or '').split()
+    if len(w) < 3: return title
+    best, score = None, 1e9
+    for i in range(1, len(w)):
+        a, b = ' '.join(w[:i]), ' '.join(w[i:])
+        s = abs(len(a) - len(b))
+        if w[i].lower() in CONNECT: s -= 6
+        if w[i-1].lower() in CONNECT: s -= 3
+        if s < score: score, best = s, (a, b)
+    return f'{best[0]}<br>{best[1]}'
+
 
 CATNAME = {
     'archaioi': 'Αρχαίοι Ελληνικοί Μύθοι', 'irakleioi': 'Ηράκλειοι Μύθοι',
@@ -224,7 +305,7 @@ def build_pdf(d):
 <div class="cover">
   <p class="eyebrow">{eyebrow}</p>
   <img src="{IMG}/{d['image']}">
-  <h1>{d.get('titleHtml') or d['title']}</h1>
+  <h1>{d.get('titleHtml') or auto_break(d['title'])}</h1>
   {f'<p class="origin">{d["origin"]}</p>' if d.get('origin') else ''}
   <p class="tagline">{d['tagline']}</p>
   {f'<p class="credit">{d["credit"]}</p>' if d.get('credit') else ''}
@@ -317,6 +398,7 @@ def build_epub(d):
 # ──────────────────────────── ΕΚΤΕΛΕΣΗ ────────────────────────────
 
 if __name__ == '__main__':
+    load_focus()
     n = build_images()
     if n: print(f'  → {n} αρχεία εικόνας')
 
