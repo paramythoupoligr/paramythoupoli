@@ -4,7 +4,7 @@ titleHtml: Το Πουλί-<br>Ουράνιο Τόξο
 slug: to-pouli-ouranio-toxo
 number: 23
 category: pagkosmia
-image: /assets/img/cover_winter_feather_3x2.png
+image: /assets/img/8f88f707-cd76-43c0-9fe7-191caf527ad4.jpg
 imageFocus: κέντρο
 imageAlt: Μαύρο φτερό με ιριδίζουσες μπλε και μενεξεδιές ανταύγειες πάνω σε
   χιονισμένο βράχο, στην όχθη παγωμένου ποταμού, με μια αχτίδα ήλιου να πέφτει
