@@ -2,7 +2,7 @@
 title: Το Πουλί με τα Δύο Κεφάλια
 titleHtml: Το Πουλί<br>με τα Δύο Κεφάλια
 slug: pouli-dyo-kefalia
-number: 23
+number: 24
 category: pagkosmia
 image: /assets/img/dyo-anthismenoi-lotoi.jpg
 imageFocus: κέντρο
