@@ -2,7 +2,7 @@
 title: Το Πουλί-Ουράνιο Τόξο
 titleHtml: Το Πουλί-<br>Ουράνιο Τόξο
 slug: to-pouli-ouranio-toxo
-number: 22
+number: 23
 category: pagkosmia
 image: /assets/img/cover_winter_feather_3x2.png
 imageFocus: κέντρο
