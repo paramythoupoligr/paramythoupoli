@@ -2,7 +2,7 @@
 title: Το Σπίτι που Μίκραινε
 titleHtml: Το Σπίτι<br>που Μίκραινε
 slug: to-spiti-pou-mikraine
-number: 24
+number: 25
 category: pagkosmia
 image: /assets/img/paparpuna-anthismeni-paparouna-kleisti.jpg
 imageFocus: κέντρο
