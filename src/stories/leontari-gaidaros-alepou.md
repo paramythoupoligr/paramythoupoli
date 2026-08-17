@@ -4,7 +4,7 @@ titleHtml: Το Λιοντάρι, ο Γάιδαρος<br>και η Αλεπού
 slug: leontari-gaidaros-alepou
 number: 28
 category: aisopou
-image: /assets/img/gaidourangatho.jpg
+image: /assets/img/gaidouragkatho.jpg.jpg
 imageFocus: κέντρο
 imageAlt: Mοβ άνθος γαϊδουράγκαθου, με την αγκαθωτή κεφαλή του φυτού και
   μπουμπούκια στο βάθος.
