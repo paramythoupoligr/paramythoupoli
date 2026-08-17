@@ -5,7 +5,7 @@ slug: leontari-gaidaros-alepou
 number: 28
 category: aisopou
 image: /assets/img/agathi.jpg
-imageFocus: κέντρο
+imageFocus: πάνω
 imageAlt: Άνθος γαϊδουράγκαθου, με την αγκαθωτή κεφαλή του φυτού και μπουμπούκια.
 tagline: Τρεις  μοιράζονται τα κέρδη από την κοινή προσπάθεια — αλλά μόνο ένας
   αποφασίζει τι είναι δίκαιο.
