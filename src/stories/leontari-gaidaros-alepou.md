@@ -4,7 +4,7 @@ titleHtml: Το Λιοντάρι, ο Γάιδαρος<br>και η Αλεπού
 slug: leontari-gaidaros-alepou
 number: 28
 category: aisopou
-image: /assets/img/eoiformpia.jpg
+image: /assets/img/eoiformpia-by-g.jpg
 imageFocus: κέντρο
 imageAlt: Άνθοι Αγκαθιού
 tagline: Τρεις  μοιράζονται τα κέρδη από την κοινή προσπάθεια — αλλά μόνο ένας
