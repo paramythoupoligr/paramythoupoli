@@ -2,7 +2,7 @@
 title: Το Λιοντάρι, ο Γάιδαρος και η Αλεπού
 titleHtml: Το Λιοντάρι, ο Γάιδαρος<br>και η Αλεπού
 slug: leontari-gaidaros-alepou
-number: 26
+number: 28
 category: aisopou
 image: /assets/img/γαιδουράγκαθο.jpg
 imageFocus: πάνω
